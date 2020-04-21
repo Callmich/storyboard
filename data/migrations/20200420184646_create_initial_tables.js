@@ -73,12 +73,101 @@ exports.up = function(knex) {
           .onUpdate('CASCADE');
         scenes.string('timespan', 100);
     })
-
-
-    
-    )
+    .createTable('story_characters', storChar => {
+        storChar.increments('id');
+        storChar.integer('story_id')
+          .notNullable()
+          .references('id')
+          .inTable('stories')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE');
+        storChar.integer('character_id')
+          .notNullable()
+          .references('id')
+          .inTable('characters')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE');
+        storChar.unique(['story_id', 'character_id']);
+        storChar.text('pov_changes');
+    })
+    .createTable('story_settings', storSett => {
+        storSett.increments('id');
+        storSett.integer('story_id')
+          .notNullable()
+          .references('id')
+          .inTable('stories')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE');
+        storSett.integer('setting_id')
+          .notNullable()
+          .references('id')
+          .inTable('settings')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE');
+        storSett.unique(['story_id', 'setting_id']);
+    })
+    .createTable('scene_characters', sceneChar => {
+        sceneChar.increments('id');
+        sceneChar.integer('scene_id')
+          .notNullable()
+          .references('id')
+          .inTable('scenes')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE');
+        sceneChar.integer('character_id')
+          .notNullable()
+          .references('id')
+          .inTable('characters')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE');
+        sceneChar.unique(['scene_id', 'character_id']);
+        sceneChar.text('pov_changes');
+    })
+    .createTable('scene_settings', sceneSett => {
+        sceneSett.increments('id');
+        sceneSett.integer('scene_id')
+          .notNullable()
+          .references('id')
+          .inTable('scenes')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE');
+        sceneSett.integer('setting_id')
+          .notNullable()
+          .references('id')
+          .inTable('settings')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE');
+        sceneSett.unique(['scene_id', 'setting_id']);
+    })
+    .createTable('character_settings', charSett => {
+        charSett.increments('id');
+        charSett.integer('character_id')
+          .notNullable()
+          .references('id')
+          .inTable('characters')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE');
+        charSett.integer('setting_id')
+          .notNullable()
+          .references('id')
+          .inTable('settings')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE');
+        charSett.unique(['character_id', 'setting_id']);
+    })
+  )
 };
 
 exports.down = function(knex) {
-  
+  return knex.schema
+    .dropTableIfExists('character_settings')
+    .dropTableIfExists('scene_settings')
+    .dropTableIfExists('scene_characters')
+    .dropTableIfExists('story_setting')
+    .dropTableIfExists('story_characters')
+    .dropTableIfExists('scenes')
+    .dropTableIfExists('settings')
+    .dropTableIfExists('characters')
+    .dropTableIfExists('stories')
+    .dropTableIfExists('projects')
 };

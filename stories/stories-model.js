@@ -1,46 +1,46 @@
 const dB = require('../data/dbConfig.js');
 
 module.exports = {
-    find,
-    findById,
-    add,
-    update,
-    remove
+    findStories,
+    findStoryById,
+    addStory,
+    updateStory,
+    removeStory
 }
 
-function find(){
+function findStories(){
     return dB('stories')
 };
 
-function findById(id){
+function findStoryById(id){
     return dB('stories')
       .where({ id })
       .first()
 }
 
-function add(project){
+function addStory(story){
     return dB('stories')
-      .insert(project, 'id')
+      .insert(story, 'id')
       .then(([id])=>{
-          return findById(id)
+          return findStoryById(id)
       })
       .catch(error =>{
           console.log('Error on add project', error)
       })
 }
 
-function update(id, changes){
+function updateStory(id, changes){
     return dB('stories')
       .where({ id })
       .update(changes)
       .then(() => {
-          return findById(id)
+          return findStoryById(id)
       })
 }
 
-function remove(id){
+function removeStory(id){
 
-    findById(id)
+    findStoryById(id)
       .then(item => {
           return (deletedItem = item)
       })

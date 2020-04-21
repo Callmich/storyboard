@@ -9,17 +9,17 @@ module.exports = {
 }
 
 function find(){
-    return dB('stories')
+    return dB('projects')
 };
 
 function findById(id){
-    return dB('stories')
+    return dB('projects')
       .where({ id })
       .first()
 }
 
 function add(project){
-    return dB('stories')
+    return dB('projects')
       .insert(project, 'id')
       .then(([id])=>{
           return findById(id)
@@ -30,7 +30,7 @@ function add(project){
 }
 
 function update(id, changes){
-    return dB('stories')
+    return dB('projects')
       .where({ id })
       .update(changes)
       .then(() => {
@@ -45,7 +45,7 @@ function remove(id){
           return (deletedItem = item)
       })
 
-    return dB('stories')
+    return dB('projects')
       .where({ id })
       .del()
       .then(count =>{

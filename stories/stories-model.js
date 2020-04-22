@@ -3,6 +3,7 @@ const dB = require('../data/dbConfig.js');
 module.exports = {
     findStories,
     findStoryById,
+    findByProjectId,
     addStory,
     updateStory,
     removeStory
@@ -16,6 +17,11 @@ function findStoryById(id){
     return dB('stories')
       .where({ id })
       .first()
+}
+
+function findByProjectId(project_id){
+    return dB('projects')
+      .where({ project_id })
 }
 
 function addStory(story){

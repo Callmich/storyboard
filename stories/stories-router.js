@@ -6,7 +6,7 @@ const router = express.Router();
 
 //CRUD ACTIONS go gere will start with /api/stories
 router.get('/', (req, res) => {
-    Projects.find()
+    Stories.findStories()
       .then(stories => {
           res.status(200).json(stories)
       })
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.post("/", (req, res) => {
     const storyData = req.body;
 
-    Projects.add(storyData)
+    Stories.addStory(storyData)
       .then(story => {
           res.status(201).json(story)
       })

@@ -21,7 +21,7 @@ function findStoryById(id){
 
 function findByProjectId(project_id){
     return dB('projects')
-      .where({ project_id })
+      .where(project_id)
 }
 
 function addStory(story){

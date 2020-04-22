@@ -23,14 +23,17 @@ router.get('/:id', (req, res) => {
           if (project) {
             Stories.findByProjectId(id)
               .then( stories =>{
-                res.status(200).json(project, stories)
+                res.status(200).json(stories)
+              })
+              .catch(error => {
+                console.log(error)
               })
           } else {
               res.status(404).json(`Can not find a project with id ${id}`)
           }
       })
       .catch(error =>{
-        res.status(500).json({message: `Server error: Failed to find Project ${error.message}`})
+        res.status(500).json({message: `Server error: Failed to find Project ${error}`})
       })
 })
 

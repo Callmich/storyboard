@@ -56,7 +56,7 @@ router.put('/:id', (req, res) => {
     Projects.findById(id)
       .then(project => {
           if (project) {
-              Projects.update(changes, id)
+              Projects.update(id, changes)
                 .then(updatedProject => {
                     res.status(200).json(updatedProject)
                 })

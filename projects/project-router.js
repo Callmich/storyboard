@@ -16,6 +16,18 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
+  const {id} = req.params
+
+  Projects.findById(id)
+    .then(project => {
+      res.status(200).json(project)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
+router.get('/:id/stories', (req, res) => {
     const { id } = req.params
 
     Projects.findById(id)
@@ -27,6 +39,7 @@ router.get('/:id', (req, res) => {
               })
               .catch(error => {
                 console.log(error)
+                res.status(500).json({ message: "Failed to get project from server"})
               })
           } else {
               res.status(404).json(`Can not find a project with id ${id}`)

@@ -50,6 +50,8 @@ router.get('/:id/stories', (req, res) => {
       })
 })
 
+//Add GET for Characters and Settings
+
 router.post("/", (req, res) => {
     const projectData = req.body;
 
@@ -73,6 +75,10 @@ router.put('/:id', (req, res) => {
                 .then(updatedProject => {
                     res.status(200).json(updatedProject)
                 })
+                .catch(error => {
+                  console.log(error)
+                  res.status(500).json({message: "error updating project - please confirm the correct info is being sent"})
+                })
           } else {
             res.status(404).json({ message: `Could not find project with id ${id}` });
           }
@@ -88,7 +94,7 @@ router.delete('/:id', (req, res) =>{
     Projects.remove(id)
       .then(deleted => {
           if (deleted) {
-              res.json({removed: deleted})
+              res.status(200).json({removed: deleted})
           } else {
               res.status(404).json({error: `Could not find a project with id ${id}`})
           }

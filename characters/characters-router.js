@@ -41,4 +41,44 @@ router.post("/", (req, res) => {
       })
 })
 
+router.put('/:id', (req, res) => {
+    const {id} = req.params;
+    const changes = req.body;
+
+    Characters.findCharacterById(id)
+      .then(char => {
+          if(char){
+            Characters.updateCharacter(id, changes)
+            .then(updatedChar => {
+                res.status(200).json(updatedChar)
+            })
+            .catch(error => {
+                console.log(error)
+                res.status(404).json({message: "error updating Character - please confirm the correct info is being sent"})
+                })
+          } else {
+            res.status(404).json({ message: `Could not find character with id ${id}`});
+          }
+      })
+      .catch(error => {
+        res.status(500).json({error: `Failed to update character ${error.message}`})
+      })
+})
+
+router.delete('/:id', (req,res) => {
+    const { id } = req.params
+
+    Characters.removeCharacter(id)
+      .then(deleted => {
+          if(deleted){
+            res.status(200).json({removed: deleted})
+          } else {
+            res.status(404).json({error: `could not find a character with id ${id}`})
+          }
+      })
+      .catch(error => {
+          res.status(500).json({error: `Server unable to delete character with id ${id} Error: ${error}`})
+      })
+})
+
 module.exports = router;

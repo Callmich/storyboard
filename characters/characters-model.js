@@ -31,7 +31,7 @@ function addCharacter(char){
         return findCharacterById(id)
     })
     .catch(error => {
-        console.log('Error on add project', error)
+        console.log('Error on add character', error)
     })
 }
 
@@ -43,7 +43,7 @@ function updateCharacter(id, changes){
         return findCharacterById(id)
     })
     .catch(error => {
-        console.log('Error on add project', error)
+        console.log('Error on update character', error)
         return error
     })
 }
@@ -62,7 +62,7 @@ function removeCharacter(id){
             return deletedItem
         })
         .catch(error => {
-            console.log('Error on add project', error)
+            console.log('Error on add character', error)
             return error
         })
 }

@@ -28,4 +28,16 @@ router.get('/id', (req, res) => {
       })
 })
 
+router.post('/', (req, res) => {
+    const settingData = req.body
+
+    Settings.addSetting(settingData)
+      .then(newSet => {
+          res.status(201).json(newSet)
+      })
+      .catch(error => {
+          res.status(500).json({message: `Failed to Create a new Project ${error.message})
+      })
+})
+
 module.exports = router;

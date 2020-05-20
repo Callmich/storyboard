@@ -34,3 +34,16 @@ function addScene(scene){
         console.log('Error on add scene', error)
     })
 };
+
+function updateScene(id, changes){
+    return dB('scenes')
+    .where({ id })
+    .update(changes)
+    .then(() => {
+        return findSceneById(id)
+    })
+    .catch(error => {
+        console.log('Error on update Scenes', error)
+        return error
+    })
+}

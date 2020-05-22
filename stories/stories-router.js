@@ -5,14 +5,24 @@ const Stories = require('./stories-model.js');
 const router = express.Router();
 
 //CRUD ACTIONS go gere will start with /api/stories
+// router.get('/', (req, res) => {
+//     Stories.findStories()
+//       .then(stories => {
+//           res.status(200).json(stories)
+//       })
+//       .catch(error =>{
+//           res.status(500).json({ message: "Failed to get stories from server"})
+//       })
+// })
+
 router.get('/', (req, res) => {
-    Stories.findStories()
-      .then(stories => {
-          res.status(200).json(stories)
-      })
-      .catch(error =>{
-          res.status(500).json({ message: "Failed to get stories from server"})
-      })
+  Stories.findAll('stories')
+    .then(stories => {
+        res.status(200).json(stories)
+    })
+    .catch(error =>{
+        res.status(500).json({ message: "Failed to get stories from server"})
+    })
 })
 
 router.get('/:id', (req, res) => {

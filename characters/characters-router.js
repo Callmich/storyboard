@@ -1,19 +1,30 @@
 const express = require('express');
 
 const Characters = require('./characters-model');
+const Stories = require('../stories/stories-model.js')
 
 const router = express.Router();
 
 //CRUD ACTIONS go here and will start with /api/characters
 
+// router.get('/', (req, res) => {
+//     Characters.findCharacters()
+//       .then(characters => {
+//           res.status(200).json(characters)
+//       })
+//       .catch(error =>{
+//           res.status(500).json({ message: "Failed to get characters from server"})
+//       })
+// })
+
 router.get('/', (req, res) => {
-    Characters.findCharacters()
-      .then(characters => {
-          res.status(200).json(characters)
-      })
-      .catch(error =>{
-          res.status(500).json({ message: "Failed to get characters from server"})
-      })
+  Stories.findAll('characters')
+    .then(characters => {
+        res.status(200).json(characters)
+    })
+    .catch(error =>{
+        res.status(500).json({ message: "Failed to get characters from server"})
+    })
 })
 
 router.get('/:id', (req, res) => {

@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
           res.status(201).json(newSet)
       })
       .catch(error => {
-          res.status(500).json({message: `Failed to Create a new Project ${error.message}`)
+          res.status(500).json({message: `Failed to Create a new Project ${error.message}`})
       })
 })
 

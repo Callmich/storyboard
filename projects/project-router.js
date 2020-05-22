@@ -5,14 +5,24 @@ const Stories = require('../stories/stories-model.js')
 
 const router = express.Router();
 
+// router.get('/', (req, res) => {
+//     Projects.find()
+//       .then(projects => {
+//           res.status(200).json(projects)
+//       })
+//       .catch(error =>{
+//           res.status(500).json({ message: "Failed to get projects from server"})
+//       })
+// })
+
 router.get('/', (req, res) => {
-    Projects.find()
-      .then(projects => {
-          res.status(200).json(projects)
-      })
-      .catch(error =>{
-          res.status(500).json({ message: "Failed to get projects from server"})
-      })
+  Stories.findAll('projects')
+    .then(projects => {
+        res.status(200).json(projects)
+    })
+    .catch(error =>{
+        res.status(500).json({ message: "Failed to get projects from server"})
+    })
 })
 
 router.get('/:id', (req, res) => {

@@ -1,22 +1,11 @@
 const express = require('express');
 
-const Projects = require('./project-model.js');
-const Stories = require('../stories/stories-model.js')
+const SharedFunc = require('../shared-models/shared-models.js')
 
 const router = express.Router();
 
-// router.get('/', (req, res) => {
-//     Projects.find()
-//       .then(projects => {
-//           res.status(200).json(projects)
-//       })
-//       .catch(error =>{
-//           res.status(500).json({ message: "Failed to get projects from server"})
-//       })
-// })
-
 router.get('/', (req, res) => {
-  Stories.findAll('projects')
+  SharedFunc.findAll('projects')
     .then(projects => {
         res.status(200).json(projects)
     })
@@ -28,7 +17,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const {id} = req.params
 
-  Projects.findById(id)
+  SharedFunc.findById('projects', id)
     .then(project => {
       res.status(200).json(project)
     })
@@ -37,13 +26,15 @@ router.get('/:id', (req, res) => {
     })
 })
 
+
+//Add GET for Characters and Settings ideally to be variable
 router.get('/:id/stories', (req, res) => {
     const { id } = req.params
 
-    Projects.findById(id)
+    SharedFunc.findById('projects', id)
       .then(project => {
           if (project) {
-            Stories.findByProjectId(id)
+            SharedFunc.findByProjectId('stories', id)
               .then( stories =>{
                 res.status(200).json(stories)
               })
@@ -60,12 +51,10 @@ router.get('/:id/stories', (req, res) => {
       })
 })
 
-//Add GET for Characters and Settings
-
 router.post("/", (req, res) => {
     const projectData = req.body;
 
-    Projects.add(projectData)
+    SharedFunc.add('projects', projectData)
       .then(project => {
           res.status(201).json(project)
       })
@@ -78,10 +67,10 @@ router.put('/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
 
-    Projects.findById(id)
+    SharedFunc.findById('projects', id)
       .then(project => {
           if (project) {
-              Projects.update(id, changes)
+              SharedFunc.update('projects', id, changes)
                 .then(updatedProject => {
                     res.status(200).json(updatedProject)
                 })
@@ -101,7 +90,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) =>{
     const { id } = req.params;
 
-    Projects.remove(id)
+    SharedFunc.remove('projects', id)
       .then(deleted => {
           if (deleted) {
               res.status(200).json({removed: deleted})
@@ -113,9 +102,5 @@ router.delete('/:id', (req, res) =>{
           res.status(500).json({error: `Server unable to delete project with id ${id} Error: ${error}`})
       })
 })
-
-
-
-
 
 module.exports = router;

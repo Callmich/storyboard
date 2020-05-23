@@ -1,22 +1,14 @@
 const express = require('express');
 
 const Stories = require('./stories-model.js');
+const SharedFunc = require('../shared-models/shared-models.js')
 
 const router = express.Router();
 
 //CRUD ACTIONS go gere will start with /api/stories
-// router.get('/', (req, res) => {
-//     Stories.findStories()
-//       .then(stories => {
-//           res.status(200).json(stories)
-//       })
-//       .catch(error =>{
-//           res.status(500).json({ message: "Failed to get stories from server"})
-//       })
-// })
 
 router.get('/', (req, res) => {
-  Stories.findAll('stories')
+  SharedFunc.findAll('stories')
     .then(stories => {
         res.status(200).json(stories)
     })
@@ -28,7 +20,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const {id} =req.params
 
-    Stories.findStoryById(id)
+    SharedFunc.findById('stories', id)
       .then(project => {
         res.status(200).json(project)
       })
@@ -37,8 +29,6 @@ router.get('/:id', (req, res) => {
         res.status(500).json({ message: "Failed to get story from server"})
       })
 })
-
-//Add GET for Scenes, Characters, and Settings
 
 router.post("/", (req, res) => {
     const storyData = req.body;

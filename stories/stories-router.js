@@ -1,6 +1,4 @@
 const express = require('express');
-
-const Stories = require('./stories-model.js');
 const SharedFunc = require('../shared-models/shared-models.js')
 
 const router = express.Router();
@@ -46,10 +44,10 @@ router.put('/:id', (req, res) => {
     const {id} = req.params;
     const changes = req.body;
 
-    Stories.findStoryById(id)
+    SharedFunc.findStoryById('stories', id)
       .then(story => {
           if(story){
-            Stories.updateStory(id, changes)
+            SharedFunc.updateStory('stories', id, changes)
             .then(updatedStory => {
                 res.status(200).json(updatedStory)
             })
@@ -69,7 +67,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req,res) => {
     const { id } = req.params
 
-    Stories.removeStory(id)
+    SharedFunc.removeStory('stories', id)
       .then(deleted => {
           if(deleted){
             res.status(200).json({removed: deleted})

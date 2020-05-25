@@ -1,24 +1,14 @@
 const express = require('express');
 
-const Characters = require('./characters-model');
-const Stories = require('../stories/stories-model.js')
+const SharedFunc = require('../shared-models/shared-models.js')
 
 const router = express.Router();
 
 //CRUD ACTIONS go here and will start with /api/characters
 
-// router.get('/', (req, res) => {
-//     Characters.findCharacters()
-//       .then(characters => {
-//           res.status(200).json(characters)
-//       })
-//       .catch(error =>{
-//           res.status(500).json({ message: "Failed to get characters from server"})
-//       })
-// })
 
 router.get('/', (req, res) => {
-  Stories.findAll('characters')
+  SharedFunc.findAll('characters')
     .then(characters => {
         res.status(200).json(characters)
     })
@@ -30,7 +20,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const {id} =req.params
 
-    Characters.findCharacterById(id)
+    SharedFunc.findById('characters', id)
       .then(char => {
         res.status(200).json(char)
       })
@@ -43,7 +33,7 @@ router.get('/:id', (req, res) => {
 router.post("/", (req, res) => {
     const charData = req.body;
 
-    Characters.addCharacter(charData)
+    SharedFunc.add('characters', charData)
       .then(newChar => {
           res.status(201).json(newChar)
       })
@@ -56,10 +46,10 @@ router.put('/:id', (req, res) => {
     const {id} = req.params;
     const changes = req.body;
 
-    Characters.findCharacterById(id)
+    SharedFunc.findById('characters', id)
       .then(char => {
           if(char){
-            Characters.updateCharacter(id, changes)
+            SharedFunc.update('characters', id, changes)
             .then(updatedChar => {
                 res.status(200).json(updatedChar)
             })
@@ -79,7 +69,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req,res) => {
     const { id } = req.params
 
-    Characters.removeCharacter(id)
+    SharedFunc.remove('characters', id)
       .then(deleted => {
           if(deleted){
             res.status(200).json({removed: deleted})

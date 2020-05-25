@@ -44,10 +44,10 @@ router.put('/:id', (req, res) => {
     const {id} = req.params;
     const changes = req.body;
 
-    SharedFunc.findStoryById('stories', id)
+    SharedFunc.findById('stories', id)
       .then(story => {
           if(story){
-            SharedFunc.updateStory('stories', id, changes)
+            SharedFunc.update('stories', id, changes)
             .then(updatedStory => {
                 res.status(200).json(updatedStory)
             })
@@ -67,7 +67,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req,res) => {
     const { id } = req.params
 
-    SharedFunc.removeStory('stories', id)
+    SharedFunc.remove('stories', id)
       .then(deleted => {
           if(deleted){
             res.status(200).json({removed: deleted})

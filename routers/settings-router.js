@@ -1,6 +1,5 @@
 const express = require('express');
 
-const Settings = require('./settings-model.js');
 const SharedFunc = require('../shared-models/shared-models.js')
 
 const router = express.Router();

@@ -1,10 +1,10 @@
 const express = require('express');
 
 //create Router for tables
-const ProjectRouter = require('./projects/project-router.js')
-const StoryRouter = require('./stories/stories-router.js');
-const SettingRouter = require('./settings/settings-router.js');
-const CharacterRouter = require('./characters/characters-router.js');
+const ProjectRouter = require('./routers/project-router.js')
+const StoryRouter = require('./routers/stories-router.js');
+const SettingRouter = require('./routers/settings-router.js');
+const CharacterRouter = require('./routers/characters-router.js');
 
 const server = express();
 

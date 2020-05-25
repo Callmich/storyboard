@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
 router.post("/", (req, res) => {
     const storyData = req.body;
 
-    Stories.addStory(storyData)
+    SharedFunc.add('stories', storyData)
       .then(story => {
           res.status(201).json(story)
       })

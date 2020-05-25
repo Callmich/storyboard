@@ -22,12 +22,10 @@ router.get('/:id', (req, res) => {
       res.status(200).json(project)
     })
     .catch(error => {
-      console.log(error)
+      res.status(500).json(`Server error while pulling project Error: ${error}`)
     })
 })
 
-
-//Add GET for Characters and Settings ideally to be variable
 router.get('/:id/stories', (req, res) => {
     const { id } = req.params
 
@@ -51,6 +49,52 @@ router.get('/:id/stories', (req, res) => {
       })
 })
 
+router.get('/:id/characters', (req, res) => {
+  const { id } = req.params
+
+  SharedFunc.findById('projects', id)
+    .then(project => {
+        if (project) {
+          SharedFunc.findByProjectId('characters', id)
+            .then( stories =>{
+              res.status(200).json(stories)
+            })
+            .catch(error => {
+              console.log(error)
+              res.status(500).json({ message: "Failed to get project from server"})
+            })
+        } else {
+            res.status(404).json(`Can not find a project with id ${id}`)
+        }
+    })
+    .catch(error =>{
+      res.status(500).json({message: `Server error: Failed to find Project ${error}`})
+    })
+})
+
+router.get('/:id/settings', (req, res) => {
+  const { id } = req.params
+
+  SharedFunc.findById('projects', id)
+    .then(project => {
+        if (project) {
+          SharedFunc.findByProjectId('settings', id)
+            .then( stories =>{
+              res.status(200).json(stories)
+            })
+            .catch(error => {
+              console.log(error)
+              res.status(500).json({ message: "Failed to get project from server"})
+            })
+        } else {
+            res.status(404).json(`Can not find a project with id ${id}`)
+        }
+    })
+    .catch(error =>{
+      res.status(500).json({message: `Server error: Failed to find Project ${error}`})
+    })
+})
+
 router.post("/", (req, res) => {
     const projectData = req.body;
 
@@ -64,30 +108,29 @@ router.post("/", (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    const { id } = req.params;
-    const changes = req.body;
+  const { id } = req.params;
+  const changes = req.body;
 
-    SharedFunc.findById('projects', id)
-      .then(project => {
-          if (project) {
-              SharedFunc.update('projects', id, changes)
-                .then(updatedProject => {
-                    res.status(200).json(updatedProject)
-                })
-                .catch(error => {
-                  console.log(error)
-                  res.status(500).json({message: "error updating project - please confirm the correct info is being sent"})
-                })
-          } else {
-            res.status(404).json({ message: `Could not find project with id ${id}` });
-          }
+  SharedFunc.findById('projects', id)
+    .then(project => {
+      if (project) {
+        SharedFunc.update('projects', id, changes)
+          .then(updatedProject => {
+            res.status(200).json(updatedProject)
+          })
+          .catch(error => {
+            res.status(500).json({message: `error updating project - please confirm the correct info is being sent ${error}`})
+          })
+      } else {
+        res.status(404).json({ message: `Could not find project with id ${id}` });
+      }
       })
-      .catch(error => {
-        res.status(500).json({error: `Failed to update project ${error.message}`})
-      })
+    .catch(error => {
+      res.status(500).json({error: `Failed to update project ${error}`})
+    })
 })
 
-router.delete('/:id', (req, res) =>{
+router.delete('/:id', (req, res) => {
     const { id } = req.params;
 
     SharedFunc.remove('projects', id)

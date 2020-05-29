@@ -5,6 +5,16 @@ const StoryCharacter = require('../../shared-models/middleTable-Models/story_cha
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+    StoryCharacter.find()
+      .then(storyChars => {
+        res.status(200).json(storyChars)
+      })
+      .catch(error => {
+        res.status(500).json({ message: `failed to get story_characters from server ${error}`})
+      })
+})
+
 
 router.post('/', (req, res) => {
     const storyCharData = req.body;

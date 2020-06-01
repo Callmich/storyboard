@@ -163,7 +163,7 @@ exports.down = function(knex) {
     .dropTableIfExists('character_settings')
     .dropTableIfExists('scene_settings')
     .dropTableIfExists('scene_characters')
-    .dropTableIfExists('story_setting')
+    .dropTableIfExists('story_settings')
     .dropTableIfExists('story_characters')
     .dropTableIfExists('scenes')
     .dropTableIfExists('settings')

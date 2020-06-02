@@ -15,6 +15,20 @@ router.get('/', (req, res) => {
       })
 })
 
+router.get('/:id', (req, res) => {
+  const { id } = req.params
+
+  StoryCharacter.findById(id)
+    .then(storyChar => {
+      res.status(200).json(storyChar)
+    })
+    .catch(error => {
+      res.status(500).json({message: `failed to get story_character from server ${error}`})
+    })
+})
+
+// router.get('/:id/project')
+
 
 router.post('/', (req, res) => {
     const storyCharData = req.body;

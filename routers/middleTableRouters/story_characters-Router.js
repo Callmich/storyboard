@@ -27,7 +27,27 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// router.get('/:id/project')
+router.get('/:id/project', (req, res) => {
+  const { id } = req.params
+
+  SharedFunc.findById('projects', id)
+    .then(project => {
+      if (project) {
+        StoryCharacter.findByProjectId(id)
+          .then(storyChars => {
+            res.status(200).json(storyChars)
+          })
+          .catch(error => {
+            res.status(500).json({ message: `Failed to get story_characters by project id Error: ${error}`})
+          })
+      }else{
+        res.status(404).json({message: `Can not find a project with id ${id}`})
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: `Failed to get story_characters by project id Error: ${error}`})
+    })
+})
 
 
 router.post('/', (req, res) => {

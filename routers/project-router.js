@@ -41,7 +41,7 @@ router.get('/:id/stories', (req, res) => {
                 res.status(500).json({ message: "Failed to get project from server"})
               })
           } else {
-              res.status(404).json(`Can not find a project with id ${id}`)
+              res.status(404).json({message: `Can not find a project with id ${id}`})
           }
       })
       .catch(error =>{

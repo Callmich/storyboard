@@ -58,7 +58,7 @@ router.post('/', (req, res) => {
         res.status(201).json(item)
       })
       .catch(error => {
-          res.status(500).json({message: `Failed to create link for Story and Character ${error}`})
+          res.status(500).json({message: `Failed to create link for Story and Character - Error: ${error}`})
       })
 })
 
@@ -93,7 +93,7 @@ router.delete('/:id', (req, res) => {
         if(deleted){
           res.status(200).json({removed: deleted})
         }else{
-          res.status(404).json({error: `Could not find story Characters with id ${id}`})
+          res.status(404).json({error: `Could not find story_characters with id ${id}`})
         }
       })
       .catch(error => {

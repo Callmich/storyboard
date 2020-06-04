@@ -97,7 +97,7 @@ router.delete('/:id', (req, res) => {
         }
       })
       .catch(error => {
-          res.status(500).json({error: `Server unable to delete story_character Error: ${error}`})
+          res.status(500).json({error: `Server unable to delete story_character - Error: ${error}`})
       })
 })
 

@@ -49,7 +49,6 @@ router.get('/:id/project', (req, res) => {
       })
 })
 
-
 router.post('/', (req, res) => {
     const storySettingData = req.body;
 

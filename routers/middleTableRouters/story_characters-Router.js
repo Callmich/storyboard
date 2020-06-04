@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
       res.status(200).json(storyChar)
     })
     .catch(error => {
-      res.status(500).json({message: `failed to get story_character from server ${error}`})
+      res.status(500).json({message: `failed to get story_character from server - Error: ${error}`})
     })
 })
 
@@ -45,7 +45,7 @@ router.get('/:id/project', (req, res) => {
       }
     })
     .catch(error => {
-      res.status(500).json({ message: `Failed to get story_characters by project id Error: ${error}`})
+      res.status(500).json({ message: `Failed to get story_characters by project id - Error: ${error}`})
     })
 })
 

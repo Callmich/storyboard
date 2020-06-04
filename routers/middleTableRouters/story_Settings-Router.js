@@ -5,6 +5,50 @@ const StorySetting = require('../../shared-models/middleTable-Models/story_Setti
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  StorySetting.find()
+    .then(storySets => {
+      res.status(200).json(storySets)
+    })
+    .catch(error => {
+      res.status(500).json({ message: `Failed to get story_settings from server - Error: ${error}`})
+    })
+})
+
+router,get('/:id', (req, res) => {
+  const { id } = req.params
+
+  StorySetting.findById(id)
+    .then(storySet => {
+      res.status(200).json(storySet)
+    })
+    .catch(error => {
+      res.status(500).json({ message: `Failed to get story_setting from server - Error: ${error}`})
+    })
+})
+
+router.get('/:id/project', (req, res) => {
+  const { id } = req.params
+
+  SharedFunc.findById('projects', id)
+    .then(project => {
+      if(project){
+        StorySetting.findByProjectId(id)
+          .then(storySets => {
+            res.status(200).json(storySets)
+          })
+          .catch(error => {
+            res.status(500).json({ message: `Failed to get story_settings by project id - Error: ${error}`})
+          })
+      }else{
+        res.status(404).json({message: `Can not find a project with id ${id}`})
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: `Failed to get story_settings by project id - Error: ${error}`})
+      })
+})
+
 
 router.post('/', (req, res) => {
     const storySettingData = req.body;

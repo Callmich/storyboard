@@ -9,6 +9,7 @@ const StoryCharactersRouter = require('./routers/middleTableRouters/story_charac
 const StorySettingsRouter = require('./routers/middleTableRouters/story_Settings-Router.js')
 const CharacterSettingsRouter = require('./routers/middleTableRouters/character_Settings-Router.js')
 const SceneCharactersRouter = require('./routers/middleTableRouters/scene_characters-Router.js')
+const SceneSettingsRouter = require('./routers/middleTableRouters/scene_settings-Router.js')
 
 const server = express();
 
@@ -24,5 +25,6 @@ server.use('/api/storyCharacters', StoryCharactersRouter)
 server.use('/api/storySettings', StorySettingsRouter)
 server.use('/api/characterSettings', CharacterSettingsRouter)
 server.use('/api/sceneCharacters', SceneCharactersRouter)
+server.use('/api/sceneSettings', SceneSettingsRouter)
 
 module.exports = server;

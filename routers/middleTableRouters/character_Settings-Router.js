@@ -34,8 +34,8 @@ router.get('/:id/project', (req, res) => {
     .then(project => {
       if(project){
         CharacterSetting.findByProjectId(id)
-          .then(charSet => {
-            res.status(200).json(charSet)
+          .then(charSets => {
+            res.status(200).json(charSets)
           })
           .catch(error => {
             res.status(500).json({ message: `Failed to get character_settings by project id Error: ${error}`})

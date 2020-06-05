@@ -45,7 +45,7 @@ router.get('/:id/project', (req, res) => {
       }
     })
     .catch(error => {
-      res.status(500).json({ message: `Failed to get character_settomgs by project id - Error: ${error}`}
+      res.status(500).json({ message: `Failed to get character_settomgs by project id - Error: ${error}`})
     })
 })
 

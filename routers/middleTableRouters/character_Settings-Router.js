@@ -5,6 +5,50 @@ const CharacterSetting = require('../../shared-models/middleTable-Models/charact
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  CharacterSetting.find()
+    .then(charSets => {
+      res.status(200).json(charSets)
+    })
+    .catch(error => {
+      res.status(500).json({ message: `failed to get character_settings from server ${error}` })
+    })
+})
+
+router.get('/:id', (req, res) => {
+  const { id } = req.params
+
+  CharacterSetting.findById(id)
+    .then(charSet => {
+      res.status(200).json(charSet)
+    })
+    .catch(error => {
+      res.status(500).json({ message: `failed to get story_character from server - Error: ${error}` })
+    })
+})
+
+router.get('/:id/project', (req, res) => {
+  const { id } = req.params
+
+  SharedFunc.findById('projects', id)
+    .then(project => {
+      if(project){
+        CharacterSetting.findByProjectId(id)
+          .then(charSet => {
+            res.status(200).json(charSet)
+          })
+          .catch(error => {
+            res.status(500).json({ message: `Failed to get character_settings by project id Error: ${error}`})
+          })
+      }else{
+        res.status(404).json({message: `Can not find a project with id ${id}`})
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: `Failed to get character_settomgs by project id - Error: ${error}`}
+    })
+})
+
 router.post('/', (req, res) => {
     const characterStoryData = req.body
 

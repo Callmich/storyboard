@@ -7,10 +7,14 @@ const router = express.Router();
 router.get('/', (req, res) => {
   SharedFunc.findAll('projects')
     .then(projects => {
+      if(projects.length == 0){
+        res.status(200).json({message: `There are currently no projects created.`})
+      }else{
         res.status(200).json(projects)
+      }
     })
     .catch(error =>{
-        res.status(500).json({ message: "Failed to get projects from server"})
+        res.status(500).json({ message: `Failed to get projects from server - Error: ${error}`})
     })
 })
 
@@ -19,10 +23,14 @@ router.get('/:id', (req, res) => {
 
   SharedFunc.findById('projects', id)
     .then(project => {
-      res.status(200).json(project)
+      if(project){
+        res.status(200).json(project)
+      }else{
+        res.status(404).json({message: `Could not find project with id ${id}`})
+      }
     })
     .catch(error => {
-      res.status(500).json(`Server error while pulling project Error: ${error}`)
+      res.status(500).json(`Server error while pulling project - Error: ${error}`)
     })
 })
 

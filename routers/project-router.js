@@ -42,11 +42,15 @@ router.get('/:id/stories', (req, res) => {
           if (project) {
             SharedFunc.findByProjectId('stories', id)
               .then( stories =>{
-                res.status(200).json(stories)
+                if(stories.length == 0){
+                  res.status(200).json({ message: `There are currently no stories created for this project`})
+                }else{
+                  res.status(200).json(stories)
+                }
               })
               .catch(error => {
                 console.log(error)
-                res.status(500).json({ message: "Failed to get project from server"})
+                res.status(500).json({ message: `Failed to get project from server*** - Error: ${error}`})
               })
           } else {
               res.status(404).json({message: `Can not find a project with id ${id}`})
@@ -64,8 +68,12 @@ router.get('/:id/characters', (req, res) => {
     .then(project => {
         if (project) {
           SharedFunc.findByProjectId('characters', id)
-            .then( stories =>{
-              res.status(200).json(stories)
+            .then( characters =>{
+              if(characters.length == 0){
+                res.status(200).json({message: `There are currently no characters created for this project`})
+              }else{
+                res.status(200).json(characters)
+              }
             })
             .catch(error => {
               console.log(error)

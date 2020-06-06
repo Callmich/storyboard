@@ -10,10 +10,14 @@ const router = express.Router();
 router.get('/', (req, res) => {
   SharedFunc.findAll('characters')
     .then(characters => {
+      if(characters.length == 0){
+        res.status(200).json({message: `There are currently no characters created.`})
+      }else{
         res.status(200).json(characters)
+      }
     })
     .catch(error =>{
-        res.status(500).json({ message: "Failed to get characters from server"})
+        res.status(500).json({ message: `Failed to get characters from server - Error: ${error}`})
     })
 })
 
@@ -22,7 +26,11 @@ router.get('/:id', (req, res) => {
 
     SharedFunc.findById('characters', id)
       .then(char => {
-        res.status(200).json(char)
+        if(char){
+          res.status(200).json(char)
+        }else{
+          res.status(404).json({ message: `There Could not find character with id ${id}`})
+        }
       })
       .catch(error => {
         console.log(error)
@@ -55,7 +63,7 @@ router.put('/:id', (req, res) => {
             })
             .catch(error => {
                 console.log(error)
-                res.status(404).json({message: "error updating Character - please confirm the correct info is being sent"})
+                res.status(500).json({message: "error updating Character - please confirm the correct info is being sent"})
                 })
           } else {
             res.status(404).json({ message: `Could not find character with id ${id}`});

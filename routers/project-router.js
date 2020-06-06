@@ -66,22 +66,21 @@ router.get('/:id/characters', (req, res) => {
 
   SharedFunc.findById('projects', id)
     .then(project => {
-        if (project) {
-          SharedFunc.findByProjectId('characters', id)
-            .then( characters =>{
-              if(characters.length == 0){
-                res.status(200).json({message: `There are currently no characters created for this project`})
-              }else{
-                res.status(200).json(characters)
-              }
-            })
-            .catch(error => {
-              console.log(error)
-              res.status(500).json({ message: "Failed to get project from server"})
-            })
-        } else {
-            res.status(404).json(`Can not find a project with id ${id}`)
-        }
+      if (project) {
+        SharedFunc.findByProjectId('characters', id)
+          .then( characters =>{
+            if(characters.length == 0){
+              res.status(200).json({message: `There are currently no characters created for this project`})
+            }else{
+              res.status(200).json(characters)
+            }
+          })
+          .catch(error => {
+            res.status(500).json({ message: `Failed to get project from server - Error: ${error}`})
+          })
+      } else {
+          res.status(404).json(`Can not find a project with id ${id}`)
+      }
     })
     .catch(error =>{
       res.status(500).json({message: `Server error: Failed to find Project ${error}`})
@@ -93,18 +92,21 @@ router.get('/:id/settings', (req, res) => {
 
   SharedFunc.findById('projects', id)
     .then(project => {
-        if (project) {
-          SharedFunc.findByProjectId('settings', id)
-            .then( stories =>{
-              res.status(200).json(stories)
-            })
-            .catch(error => {
-              console.log(error)
-              res.status(500).json({ message: "Failed to get project from server"})
-            })
-        } else {
-            res.status(404).json(`Can not find a project with id ${id}`)
-        }
+      if (project) {
+        SharedFunc.findByProjectId('settings', id)
+          .then( settings =>{
+            if(settings.length == 0){
+              res.status(200).json({message: `There are currently no settings created for this project`})
+            }else{
+              res.status(200).json(settings)
+            }
+          })
+          .catch(error => {
+            res.status(500).json({ message: `Failed to get settings from server - Error: ${error}`})
+          })
+      } else {
+        res.status(404).json(`Can not find a project with id ${id}`)
+      }
     })
     .catch(error =>{
       res.status(500).json({message: `Server error: Failed to find Project ${error}`})
@@ -112,15 +114,15 @@ router.get('/:id/settings', (req, res) => {
 })
 
 router.post("/", (req, res) => {
-    const projectData = req.body;
+  const projectData = req.body;
 
-    SharedFunc.add('projects', projectData)
-      .then(project => {
-          res.status(201).json(project)
-      })
-      .catch(error => {
-          res.status(500).json({message: `Failed to Create a new Project ${error.message}`})
-      })
+  SharedFunc.add('projects', projectData)
+    .then(project => {
+        res.status(201).json(project)
+    })
+    .catch(error => {
+        res.status(500).json({message: `Failed to create a new Project ${error.message}`})
+    })
 })
 
 router.put('/:id', (req, res) => {
@@ -147,19 +149,19 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    SharedFunc.remove('projects', id)
-      .then(deleted => {
-          if (deleted) {
-              res.status(200).json({removed: deleted})
-          } else {
-              res.status(404).json({error: `Could not find a project with id ${id}`})
-          }
-      })
-      .catch(error => {
-          res.status(500).json({error: `Server unable to delete project with id ${id} Error: ${error}`})
-      })
+  SharedFunc.remove('projects', id)
+    .then(deleted => {
+        if (deleted) {
+            res.status(200).json({removed: deleted})
+        } else {
+            res.status(404).json({error: `Could not find a project with id ${id}`})
+        }
+    })
+    .catch(error => {
+      res.status(500).json({error: `Server unable to delete project with id ${id} - Error: ${error}`})
+    })
 })
 
 module.exports = router;

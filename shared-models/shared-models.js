@@ -98,12 +98,87 @@ function add(dataBase, item){
 
 function update(dataBase, id, changes){
   const updt = () => {
-    return dB(dataBase)
-      .where({ id })
+    if(dataBase == 'projects'){
+      let project_id = id
+      return dB(dataBase)
+      .where({ project_id })
       .update(changes)
       .then(() => {
           return findById(dataBase, id)
       })
+    }else if(dataBase == 'stories'){
+      let story_id = id
+      return dB(dataBase)
+        .where({ story_id })
+        .update(changes)
+        .then(() => {
+          return findById(dataBase, id)
+        })
+    }else if(dataBase == 'scenes'){
+      let scene_id = id
+      return dB(dataBase)
+        .where({ scene_id })
+        .update(changes)
+        .then(() => {
+          return findById(dataBase, id)
+        })
+    }else if(dataBase == 'settings'){
+      let setting_id = id
+      return dB(dataBase)
+        .where({ setting_id })
+        .update(changes)
+        .then(() => {
+          return findById(dataBase, id)
+        })
+    }else if(dataBase == 'characters'){
+      let character_id = id
+      return dB(dataBase)
+        .where({ character_id })
+        .update(changes)
+        .then(() => {
+          return findById(dataBase, id)
+        })
+    }else if(dataBase == 'character_settings'){
+      let character_setting_id = id
+      return dB(dataBase)
+        .where({ character_setting_id })
+        .update(changes)
+        .then(() => {
+          return findById(dataBase, id)
+        })
+    }else if(dataBase == 'scene_characters'){
+      let scene_character_id = id
+      return dB(dataBase)
+        .where({ scene_character_id })
+        .update(changes)
+        .then(() => {
+          return findById(dataBase, id)
+        })
+    }else if(dataBase == 'scene_settings'){
+      let scene_setting_id = id
+      return dB(dataBase)
+        .where({ scene_setting_id })
+        .update(changes)
+        .then(() => {
+          return findById(dataBase, id)
+        })
+    }else if(dataBase == 'story_characters'){
+      let story_character_id = id
+      return dB(dataBase)
+        .where({ story_character_id })
+        .update(changes)
+        .then(() => {
+          return findById(dataBase, id)
+        })
+    }else if(dataBase == 'story_settings'){
+      let story_setting_id = id
+      return dB(dataBase)
+        .where({ story_setting_id })
+        .update(changes)
+        .then(() => {
+          return findById(dataBase, id)
+        })
+    }
   }
   return updt()
 }
@@ -114,13 +189,87 @@ function remove(dataBase, id){
       .then(item => {
           return (deletedItem = item)
       })
-
-    return dB(dataBase)
-      .where({ id })
+    if(dataBase == 'projects'){
+      let project_id = id
+      return dB(dataBase)
+      .where({ project_id })
       .del()
       .then(count => {
           return deletedItem
       })
+    }else if(dataBase == 'stories'){
+      let story_id = id
+      return dB(dataBase)
+      .where({ story_id })
+      .del()
+      .then(count => {
+          return deletedItem
+      })
+    }else if(dataBase == 'scenes'){
+      let scene_id = id
+      return dB(dataBase)
+      .where({ scene_id })
+      .del()
+      .then(count => {
+          return deletedItem
+      })
+    }else if(dataBase == 'settings'){
+      let setting_id = id
+      return dB(dataBase)
+      .where({ setting_id })
+      .del()
+      .then(count => {
+          return deletedItem
+      })
+    }else if(dataBase == 'characters'){
+      let character_id = id
+      return dB(dataBase)
+      .where({ character_id })
+      .del()
+      .then(count => {
+          return deletedItem
+      })
+    }else if(dataBase == 'character_settings'){
+      let character_setting_id = id
+      return dB(dataBase)
+      .where({ character_setting_id })
+      .del()
+      .then(count => {
+          return deletedItem
+      })
+    }else if(dataBase == 'scene_characters'){
+      let scene_character_id = id
+      return dB(dataBase)
+      .where({ scene_character_id })
+      .del()
+      .then(count => {
+          return deletedItem
+      })
+    }else if(dataBase == 'scene_settings'){
+      let scene_setting_id = id
+      return dB(dataBase)
+      .where({ scene_setting_id })
+      .del()
+      .then(count => {
+          return deletedItem
+      })
+    }else if(dataBase == 'story_characters'){
+      let story_character_id = id
+      return dB(dataBase)
+      .where({ story_character_id })
+      .del()
+      .then(count => {
+          return deletedItem
+      })
+    }else if(dataBase == 'story_settings'){
+      let story_setting_id = id
+      return dB(dataBase)
+      .where({ story_setting_id })
+      .del()
+      .then(count => {
+          return deletedItem
+      })
+    }
   }
   return remv()
 }

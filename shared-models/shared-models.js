@@ -4,6 +4,7 @@ module.exports = {
     findAll,
     findById,
     findByProjectId,
+    findByStoryId,
     add,
     update,
     remove
@@ -75,12 +76,20 @@ function findById(dataBase, id){
 };
 
 function findByProjectId(dataBase, project_id){
-    const fbpId = () => {
-        return dB(dataBase)
-          .where({ project_id })
-    }
-    return fbpId()
+  const fbpId = () => {
+    return dB(dataBase)
+      .where({ project_id })
+  }
+  return fbpId()
 };
+
+function findByStoryId(dataBase, story_id){
+  const fbsId = () => {
+    return dB(dataBase)
+      .where({ story_id })
+  }
+  return fbsId()
+}
 
 function add(dataBase, item){
   const ad = () => {

@@ -36,6 +36,32 @@ router.get('/:id', (req, res) => {
       })
 })
 
+router.get('/:id/scenes', (req, res) => {
+  const { id } = req.params
+
+  SharedFunc.findById('stories', id)
+    .then(story => {
+      if(story){
+        SharedFunc.findByStoryId('scenes', id)
+          .then(scenes => {
+            if(scenes.length == 0){
+              res.status(200).json({ message: `There are currently no scenes created for this story` })
+            }else{
+              res.status(200).json(scenes)
+            }
+          })
+          .catch(error => {
+            res.status(500).json({ message: `Failed to get scenes from server - Error: ${error}` })
+          })
+      }else{
+        res.status(404).json({ message: `Can not find story with id ${id}`})
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: `Server error: Failed to find story - Error: ${error}`})
+    })
+})
+
 router.post("/", (req, res) => {
     const storyData = req.body;
 

@@ -96,7 +96,7 @@ router.get('/:id/settings', (req, res) => {
         SharedFunc.findByProjectId('settings', id)
           .then( settings =>{
             if(settings.length == 0){
-              res.status(200).json({message: `There are currently no settings created for this project`})
+              res.status(200).json({ message: `There are currently no settings created for this project` })
             }else{
               res.status(200).json(settings)
             }
@@ -105,11 +105,11 @@ router.get('/:id/settings', (req, res) => {
             res.status(500).json({ message: `Failed to get settings from server - Error: ${error}`})
           })
       } else {
-        res.status(404).json(`Can not find a project with id ${id}`)
+        res.status(404).json({ message: `Can not find a project with id ${id}` })
       }
     })
-    .catch(error =>{
-      res.status(500).json({message: `Server error: Failed to find Project ${error}`})
+    .catch(error => {
+      res.status(500).json({ message: `Server error: Failed to find Project - Error: ${error}` })
     })
 })
 

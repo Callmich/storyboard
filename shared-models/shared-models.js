@@ -17,10 +17,59 @@ function findAll(dataBase){
 };
 
 function findById(dataBase, id){
+
     const fbId = () => {
+      if(dataBase == 'projects'){
+        let project_id = id
         return dB(dataBase)
-          .where({ id })
+          .where({ project_id })
           .first()
+      }else if(dataBase == 'stories'){
+        let story_id = id
+        return dB(dataBase)
+          .where({ story_id })
+          .first()
+      }else if(dataBase == 'scenes'){
+        let scene_id = id
+        return dB(dataBase)
+          .where({ scene_id })
+          .first()
+      }else if(dataBase == 'settings'){
+        let setting_id = id
+        return dB(dataBase)
+          .where({ setting_id })
+          .first()
+      }else if(dataBase == 'characters'){
+        let character_id = id
+        return dB(dataBase)
+          .where({ character_id })
+          .first()
+      }else if(dataBase == 'character_settings'){
+        let character_setting_id = id
+        return dB(dataBase)
+          .where({ character_setting_id })
+          .first()
+      }else if(dataBase == 'scene_characters'){
+        let scene_character_id = id
+        return dB(dataBase)
+          .where({ scene_character_id })
+          .first()
+      }else if(dataBase == 'scene_settings'){
+        let scene_setting_id = id
+        return dB(dataBase)
+          .where({ scene_setting_id })
+          .first()
+      }else if(dataBase == 'story_characters'){
+        let story_character_id = id
+        return dB(dataBase)
+          .where({ story_character_id })
+          .first()
+      }else if(dataBase == 'story_settings'){
+        let story_setting_id = id
+        return dB(dataBase)
+          .where({ story_setting_id })
+          .first()
+      }   
     }
     return fbId()
 };

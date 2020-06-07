@@ -48,7 +48,7 @@ router.post("/", (req, res) => {
           res.status(201).json(newChar)
       })
       .catch(error => {
-          res.status(500).json({message: `Failed to Create a new Project ${error.message}`})
+          res.status(500).json({message: `Failed to Create a new project -Error: ${error}`})
       })
 })
 
@@ -65,15 +65,14 @@ router.put('/:id', (req, res) => {
                 res.status(200).json(updatedChar)
             })
             .catch(error => {
-                console.log(error)
-                res.status(500).json({message: "error updating Character - please confirm the correct info is being sent"})
+                res.status(500).json({message: `error updating Character - please confirm the correct info is being sent - Error: ${error}`})
                 })
           } else {
             res.status(404).json({ message: `Could not find character with id ${id}`});
           }
       })
       .catch(error => {
-        res.status(500).json({error: `Failed to update character ${error.message}`})
+        res.status(500).json({error: `Failed to update character - Error: ${error}`})
       })
 })
 
@@ -90,7 +89,7 @@ router.delete('/:id', (req,res) => {
           }
       })
       .catch(error => {
-          res.status(500).json({error: `Server unable to delete character with id ${id} Error: ${error}`})
+          res.status(500).json({error: `Server unable to delete character - Error: ${error}`})
       })
 })
 

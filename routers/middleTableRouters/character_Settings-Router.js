@@ -87,7 +87,7 @@ router.put('/:id', (req, res) => {
         }
       })
       .catch(error => {
-        res.status(500).json({error: `Failed to update character_Settings connection ${error}`})
+        res.status(500).json({error: `Failed to update character_Settings connection - Error: ${error}`})
       })
 })
 

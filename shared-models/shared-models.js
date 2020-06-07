@@ -10,6 +10,7 @@ module.exports = {
     remove
 }
 
+// used to find all items in a database
 function findAll(dataBase){
     const fA = () => {
         return dB(dataBase)
@@ -17,6 +18,7 @@ function findAll(dataBase){
     return fA()
 };
 
+// Based on database used - searches for that specific id
 function findById(dataBase, id){
 
     const fbId = () => {
@@ -75,6 +77,7 @@ function findById(dataBase, id){
     return fbId()
 };
 
+// Used in calls where you are searching for project_id outside of the projects database
 function findByProjectId(dataBase, project_id){
   const fbpId = () => {
     return dB(dataBase)
@@ -83,6 +86,7 @@ function findByProjectId(dataBase, project_id){
   return fbpId()
 };
 
+// Used in calls where you are searching for story_id outside of the stories database
 function findByStoryId(dataBase, story_id){
   const fbsId = () => {
     return dB(dataBase)
@@ -91,6 +95,7 @@ function findByStoryId(dataBase, story_id){
   return fbsId()
 }
 
+// used in adding to a database
 function add(dataBase, item){
   const ad = () => {
     return dB(dataBase)
@@ -105,6 +110,7 @@ function add(dataBase, item){
   return ad()
 };
 
+// Based on database used - updates that specific id
 function update(dataBase, id, changes){
   const updt = () => {
     if(dataBase == 'projects'){
@@ -192,6 +198,7 @@ function update(dataBase, id, changes){
   return updt()
 }
 
+// Based on database used - destroys that specific id
 function remove(dataBase, id){
   const remv = () => {
     findById(dataBase, id)

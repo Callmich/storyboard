@@ -6,7 +6,7 @@ const router = express.Router();
 
 //CRUD ACTIONS go here and will start with /api/characters
 
-
+// Reads all characters across all projects
 router.get('/', (req, res) => {
   SharedFunc.findAll('characters')
     .then(characters => {
@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
     })
 })
 
+// Reads specific character with character_id
 router.get('/:id', (req, res) => {
     const {id} =req.params
 
@@ -38,6 +39,7 @@ router.get('/:id', (req, res) => {
       })
 })
 
+// Creates character
 router.post("/", (req, res) => {
     const charData = req.body;
 
@@ -50,6 +52,7 @@ router.post("/", (req, res) => {
       })
 })
 
+// Updates specific character with character_id
 router.put('/:id', (req, res) => {
     const {id} = req.params;
     const changes = req.body;
@@ -74,6 +77,7 @@ router.put('/:id', (req, res) => {
       })
 })
 
+// Destroys specific character with character_id
 router.delete('/:id', (req,res) => {
     const { id } = req.params
 

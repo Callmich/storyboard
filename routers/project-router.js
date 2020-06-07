@@ -4,6 +4,9 @@ const SharedFunc = require('../shared-models/shared-models.js')
 
 const router = express.Router();
 
+// CRUD actions will start with /api/scenes
+
+// Reads all projects
 router.get('/', (req, res) => {
   SharedFunc.findAll('projects')
     .then(projects => {
@@ -18,6 +21,7 @@ router.get('/', (req, res) => {
     })
 })
 
+// Reads specific project with project_id
 router.get('/:id', (req, res) => {
   const {id} = req.params
 
@@ -34,6 +38,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
+// Reads all stories for a specific project via project_id
 router.get('/:id/stories', (req, res) => {
     const { id } = req.params
 
@@ -61,6 +66,7 @@ router.get('/:id/stories', (req, res) => {
       })
 })
 
+// Reads all characters for a specific project via project_id
 router.get('/:id/characters', (req, res) => {
   const { id } = req.params
 
@@ -87,6 +93,7 @@ router.get('/:id/characters', (req, res) => {
     })
 })
 
+// Reads all settings for a specific project via project_id
 router.get('/:id/settings', (req, res) => {
   const { id } = req.params
 
@@ -113,6 +120,7 @@ router.get('/:id/settings', (req, res) => {
     })
 })
 
+// Creates project 
 router.post("/", (req, res) => {
   const projectData = req.body;
 
@@ -125,6 +133,7 @@ router.post("/", (req, res) => {
     })
 })
 
+// Updates specific project with project_id
 router.put('/:id', (req, res) => {
   const { id } = req.params;
   const changes = req.body;
@@ -148,6 +157,7 @@ router.put('/:id', (req, res) => {
     })
 })
 
+// Destroys specific project with project_id
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
 

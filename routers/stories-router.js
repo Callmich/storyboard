@@ -5,6 +5,7 @@ const router = express.Router();
 
 //CRUD ACTIONS go gere will start with /api/stories
 
+// Reads all stories accross all projects
 router.get('/', (req, res) => {
   SharedFunc.findAll('stories')
     .then(stories => {
@@ -19,6 +20,7 @@ router.get('/', (req, res) => {
     })
 })
 
+// Reads specific story with story_id
 router.get('/:id', (req, res) => {
     const {id} =req.params
 
@@ -36,6 +38,7 @@ router.get('/:id', (req, res) => {
       })
 })
 
+// Reads all scenes for a specific story with story_id
 router.get('/:id/scenes', (req, res) => {
   const { id } = req.params
 
@@ -62,6 +65,7 @@ router.get('/:id/scenes', (req, res) => {
     })
 })
 
+// Creates story
 router.post("/", (req, res) => {
     const storyData = req.body;
 
@@ -74,6 +78,7 @@ router.post("/", (req, res) => {
       })
 })
 
+// Updates specific story with story_id
 router.put('/:id', (req, res) => {
     const {id} = req.params;
     const changes = req.body;
@@ -98,6 +103,7 @@ router.put('/:id', (req, res) => {
       })
 })
 
+// Destroys specific story with story_id
 router.delete('/:id', (req,res) => {
     const { id } = req.params
 

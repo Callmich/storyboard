@@ -5,6 +5,9 @@ const CharacterSetting = require('../../shared-models/middleTable-Models/charact
 
 const router = express.Router();
 
+//CRUD ACTIONS go here and will start with /api/characterSettings
+
+// Reads all character_settings across all projects - shows items from that db as well as characters and settings
 router.get('/', (req, res) => {
   CharacterSetting.find()
     .then(charSets => {
@@ -15,6 +18,7 @@ router.get('/', (req, res) => {
     })
 })
 
+// Reads specific character_setting based on character_setting_id - shows items from that db as well as characters and settings
 router.get('/:id', (req, res) => {
   const { id } = req.params
 
@@ -27,6 +31,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
+// Reads all character_settings based on project_id - shows items from character_setting db as well as characters and settings
 router.get('/:id/project', (req, res) => {
   const { id } = req.params
 
@@ -49,6 +54,7 @@ router.get('/:id/project', (req, res) => {
     })
 })
 
+// Creates a new character_setting
 router.post('/', (req, res) => {
     const characterStoryData = req.body
 
@@ -61,6 +67,7 @@ router.post('/', (req, res) => {
       })
 })
 
+// updates specific character_setting with character_setting_id
 router.put('/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
@@ -84,6 +91,7 @@ router.put('/:id', (req, res) => {
       })
 })
 
+// Destroys specific character_setting with character_setting_id
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
 

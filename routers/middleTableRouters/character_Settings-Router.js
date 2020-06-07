@@ -24,7 +24,11 @@ router.get('/:id', (req, res) => {
 
   CharacterSetting.findById(id)
     .then(charSet => {
-      res.status(200).json(charSet)
+      if(charSet){
+        res.status(200).json(charSet)
+      }else{
+        res.status(404).json({ message: `Could not find an entry with character_setting_id ${id}`})
+      }
     })
     .catch(error => {
       res.status(500).json({ message: `failed to get story_character from server - Error: ${error}` })

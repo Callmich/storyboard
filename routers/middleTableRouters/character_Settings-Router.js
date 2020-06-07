@@ -58,6 +58,28 @@ router.get('/:id/project', (req, res) => {
     })
 })
 
+router.get('/:id/character', (req, res) => {
+  const { id } = req.params
+
+  SharedFunc.findById('characters', id)
+    .then(character => {
+      if(character){
+        CharacterSetting.findByCharacterId(id)
+          .then(charSets => {
+            res.status(200).json(charSets)
+          })
+          .catch(error => {
+            res.status(500).json({ message: `Failed to get character_settings by character id Error: ${error}`})
+          })
+      }else{
+        res.status(404).json({message: `Can not find a project with id ${id}`})
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: `Failed to get character_settomgs by project id - Error: ${error}`})
+    })
+})
+
 // Creates a new character_setting
 router.post('/', (req, res) => {
     const characterStoryData = req.body
@@ -99,7 +121,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
 
-  SharedFunc.remove('story_characters', id)
+  SharedFunc.remove('character_settings', id)
     .then(deleted => {
       if(deleted){
         res.status(200).json({removed: deleted})

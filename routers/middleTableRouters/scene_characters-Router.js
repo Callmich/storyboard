@@ -62,7 +62,7 @@ router.get('/:id/project', (req, res) => {
 router.get('/:id/character', (req, res) => {
   const { id } = req.params
 
-  SharedFunc.findByStoryId('characters', id)
+  SharedFunc.findById('characters', id)
     .then(character => {
       if(character){
         SceneCharacter.findByCharacterId(id)

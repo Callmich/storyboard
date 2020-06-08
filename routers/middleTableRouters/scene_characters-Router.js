@@ -5,6 +5,9 @@ const SceneCharacter = require('../../shared-models/middleTable-Models/scene_cha
 
 const router = express.Router();
 
+//CRUD ACTIONS go here and will start with /api/sceneSettings
+
+// Reads all scene_characters across all projects - shows items from that db as well as characters and settings
 router.get('/', (req, res) => {
   SceneCharacter.find()
     .then(sceneChars => {
@@ -15,18 +18,24 @@ router.get('/', (req, res) => {
     })
 })
 
+// Reads specific scene_characters based on scene_character_id - shows items from that db as well as scenes and characters
 router.get('/:id', (req, res) => {
   const { id } = req.params
 
   SceneCharacter.findById(id)
     .then(sceneChar => {
-      res.status(200).json(sceneChar)
+      if(sceneChar){
+        res.status(200).json(sceneChar)
+      }else{
+        res.status(404).json({ message: `Could not find an entry with scene_character_id ${id}`})
+      }
     })
     .catch(error => {
       res.status(500).json({ message: `Failed to get scene_character from server - Error: ${error}`})
     })
 })
 
+// Reads all scene_characters based on project_id - shows items from scene_character db as well as characters and settings
 router.get('/:id/project', (req, res) => {
   const { id } = req.params
 
@@ -49,6 +58,30 @@ router.get('/:id/project', (req, res) => {
     })
 })
 
+// Reads all scene_characters based on character_id - shows items from scene_character db as well as characters and settings
+router.get('/:id/character', (req, res) => {
+  const { id } = req.params
+
+  SharedFunc.findByStoryId('characters', id)
+    .then(character => {
+      if(character){
+        SceneCharacter.findByCharacterId(id)
+          .then(sceneChars => {
+            res.status(200).json(sceneChars)
+          })
+          .catch(error => {
+            res.status(500).json({ message: `Failed to get scene_characters by character id Error: ${error}` })
+          })
+      }else{
+        res.status(404).json({ message: `Can not find a character with id ${id}`})
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: `Failed to get scene_characters by project id - Error: ${error}`})
+    })
+})
+
+// creates a new scene_character
 router.post('/', (req, res) => {
     const sceneCharactersData = req.body
 
@@ -61,6 +94,7 @@ router.post('/', (req, res) => {
       })
 })
 
+// updates specific scene_character with scene_character_id
 router.put('/:id', (req, res) => {
   const { id } = req.params
   const changes = req.body
@@ -84,6 +118,7 @@ router.put('/:id', (req, res) => {
     })
 })
 
+// Destroys specific scene_character with scene_character_id
 router.delete('/:id', (req, res) => {
   const { id } = req.params
 

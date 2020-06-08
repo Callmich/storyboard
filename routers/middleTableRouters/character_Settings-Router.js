@@ -58,6 +58,7 @@ router.get('/:id/project', (req, res) => {
     })
 })
 
+// Reads all character_settings based on character_id - shows items from character_setting db as well as characters and settings
 router.get('/:id/character', (req, res) => {
   const { id } = req.params
 
@@ -72,11 +73,11 @@ router.get('/:id/character', (req, res) => {
             res.status(500).json({ message: `Failed to get character_settings by character id Error: ${error}`})
           })
       }else{
-        res.status(404).json({message: `Can not find a project with id ${id}`})
+        res.status(404).json({message: `Can not find a character with id ${id}`})
       }
     })
     .catch(error => {
-      res.status(500).json({ message: `Failed to get character_settomgs by project id - Error: ${error}`})
+      res.status(500).json({ message: `Failed to get character_settings by project id - Error: ${error}`})
     })
 })
 

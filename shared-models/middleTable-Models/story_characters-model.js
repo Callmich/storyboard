@@ -34,7 +34,7 @@ function findByStoryId(story_id){
 } 
 
 function findByCharacterId(character_id){
-  let char_id = story_id
+  let char_id = character_id
   return dB('story_characters as sc')
     .join('characters as c', 'sc.character_id', 'c.character_id')
     .join('stories as s', 'sc.story_id', 's.story_id')

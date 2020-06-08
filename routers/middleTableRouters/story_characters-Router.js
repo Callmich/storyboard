@@ -65,7 +65,7 @@ router.get('/:id/character', (req, res) => {
   SharedFunc.findById('characters', id)
     .then(character=> {
       if (character) {
-        StoryCharacter.findByProjectId(id)
+        StoryCharacter.findByCharacterId(id)
           .then(storyChars => {
             res.status(200).json(storyChars)
           })
@@ -77,7 +77,7 @@ router.get('/:id/character', (req, res) => {
       }
     })
     .catch(error => {
-      res.status(500).json({ message: `Failed to get story_characters by project id - Error: ${error}`})
+      res.status(500).json({ message: `Failed to get story_characters by story - Error: ${error}`})
     })
 })
 

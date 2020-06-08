@@ -5,6 +5,9 @@ const SceneSetting = require('../../shared-models/middleTable-Models/scene_setti
 
 const router = express.Router();
 
+// CRUD ACTIONS go here and will start with /api/sceneSettings
+
+// Reads all scene_settings across all projects - shows items from that db as well as scenes and settings
 router.get('/', (req, res) => {
   SceneSetting.find()
     .then(sceneSets => {
@@ -15,33 +18,39 @@ router.get('/', (req, res) => {
     })
 })
 
+// Reads specific scene_settings based on scene_setting_id - shows items from that db as well as scenes and settings
 router.get('/:id', (req, res) => {
   const { id } = req.params
 
   SceneSetting.findById(id)
     .then(sceneSet => {
-      res.status(200).json(sceneSet)
+      if(sceneSet){
+        res.status(200).json(sceneSet)
+      }else{
+        res.status(404).json({ message: `Could not find an entry with scene_setting_id ${id}`})
+      }
     })
     .catch(error => {
       res.status(500).json({ message: `failed to get scene_setting from server - Error: ${error}` })
     })
 })
 
-router.get('/:id/project', (req, res) => {
+//Reads all scene_settings based on story_id - shows items from scene_settings db as well as scenes and settings
+router.get('/:id/story', (req, res) => {
   const { id } = req.params
 
-  SharedFunc.findById('projects', id)
-    .then(project => {
-      if(project){
-        SceneSetting.findByProjectId(id)
-          .then(sceneSet => {
-            res.status(200).json(sceneSet)
+  SharedFunc.findById('stories', id)
+    .then(story => {
+      if(story){
+        SceneSetting.findByStoryId(id)
+          .then(sceneSets => {
+            res.status(200).json(sceneSets)
           })
           .catch(error => {
-            res.status(500).json({message: `Failed to get scene_settings by project id Error: ${error}` })
+            res.status(500).json({message: `Failed to get scene_settings by story id Error: ${error}` })
           })
       }else{
-        res.status(404).json({ message: `Can not find a project with id ${id}` })
+        res.status(404).json({ message: `Can not find a story with id ${id}` })
       }
     })
     .catch(error => {
@@ -49,6 +58,7 @@ router.get('/:id/project', (req, res) => {
     })
 })
 
+// Creates a new scene_setting
 router.post('/', (req, res) => {
     const sceneSettingData = req.body
 
@@ -61,6 +71,7 @@ router.post('/', (req, res) => {
       })
 })
 
+// Updates specific scene_setting with scene_setting_id
 router.put('/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
@@ -84,6 +95,7 @@ router.put('/:id', (req, res) => {
       })
 })
 
+// Destroys specific scene_setting with scene_setting_id
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
   

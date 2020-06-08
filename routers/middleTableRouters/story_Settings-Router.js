@@ -5,6 +5,9 @@ const StorySetting = require('../../shared-models/middleTable-Models/story_Setti
 
 const router = express.Router();
 
+// CRUD ACTIONS go here and will start with /api/sceneSettings
+
+// Reads all story_settings across all projects - shows items from that db as well as story and settings
 router.get('/', (req, res) => {
   StorySetting.find()
     .then(storySets => {
@@ -15,6 +18,7 @@ router.get('/', (req, res) => {
     })
 })
 
+// Reads specific story_settings based on story_setting_id - shows items from that db as well as story and settings
 router.get('/:id', (req, res) => {
   const { id } = req.params
 
@@ -27,28 +31,53 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.get('/:id/project', (req, res) => {
+// Reads all story_settings based on story_id - shows items from story_settings db as well as story and settings
+router.get('/:id/story', (req, res) => {
   const { id } = req.params
 
-  SharedFunc.findById('projects', id)
-    .then(project => {
-      if(project){
-        StorySetting.findByProjectId(id)
+  SharedFunc.findById('stories', id)
+    .then(story => {
+      if(story){
+        StorySetting.findByStoryId(id)
           .then(storySets => {
             res.status(200).json(storySets)
           })
           .catch(error => {
-            res.status(500).json({ message: `Failed to get story_settings by project id - Error: ${error}`})
+            res.status(500).json({ message: `Failed to get story_settings by story id - Error: ${error}`})
           })
       }else{
-        res.status(404).json({message: `Can not find a project with id ${id}`})
+        res.status(404).json({message: `Can not find a story with id ${id}`})
       }
     })
     .catch(error => {
-      res.status(500).json({ message: `Failed to get story_settings by project id - Error: ${error}`})
+      res.status(500).json({ message: `Failed to get story_settings by story id - Error: ${error}`})
       })
 })
 
+// Reads all story_settings based on setting_id - shows items from story_settings db as well as story and settings
+router.get('/:id/setting', (req, res) => {
+  const { id } = req.params
+
+  SharedFunc.findById('settings', id)
+    .then(setting=> {
+      if(setting){
+        StorySetting.findBySettingId(id)
+          .then(storySets => {
+            res.status(200).json(storySets)
+          })
+          .catch(error => {
+            res.status(500).json({ message: `Failed to get story_settings by setting id - Error: ${error}`})
+          })
+      }else{
+        res.status(404).json({message: `Can not find a setting with id ${id}`})
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: `Failed to get story_settings by setting id - Error: ${error}`})
+      })
+})
+
+// Creates a new story_setting
 router.post('/', (req, res) => {
     const storySettingData = req.body;
 
@@ -61,6 +90,7 @@ router.post('/', (req, res) => {
       })
 })
 
+// Updates specific story_setting with story_setting_id
 router.put('/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
@@ -84,6 +114,7 @@ router.put('/:id', (req, res) => {
       })
 })
 
+// Destroys specific story_setting with story_setting_id
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
 

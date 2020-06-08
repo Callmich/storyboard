@@ -174,4 +174,4 @@ exports.down = function(knex) {
 //     .dropTableIfExists('characters')
 //     .dropTableIfExists('stories')
 //     .dropTableIfExists('projects')
-// };
+};

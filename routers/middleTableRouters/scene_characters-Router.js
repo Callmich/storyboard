@@ -5,7 +5,7 @@ const SceneCharacter = require('../../shared-models/middleTable-Models/scene_cha
 
 const router = express.Router();
 
-//CRUD ACTIONS go here and will start with /api/sceneSettings
+// CRUD ACTIONS go here and will start with /api/sceneSettings
 
 // Reads all scene_characters across all projects - shows items from that db as well as characters and settings
 router.get('/', (req, res) => {

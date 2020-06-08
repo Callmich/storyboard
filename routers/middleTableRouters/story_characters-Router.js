@@ -5,6 +5,9 @@ const StoryCharacter = require('../../shared-models/middleTable-Models/story_cha
 
 const router = express.Router();
 
+// CRUD ACTIONS go here and will start with /api/sceneSettings
+
+// Reads all story_characters across all projects - shows items from that db as well as stories and characters
 router.get('/', (req, res) => {
     StoryCharacter.find()
       .then(storyChars => {
@@ -15,33 +18,39 @@ router.get('/', (req, res) => {
       })
 })
 
+// Reads specific story_character based on story_character_id - shows items from that db as well as stories and characters
 router.get('/:id', (req, res) => {
   const { id } = req.params
 
   StoryCharacter.findById(id)
     .then(storyChar => {
-      res.status(200).json(storyChar)
+      if(storyChar){
+        res.status(200).json(storyChar)
+      }else{
+        res.status(404).json({ message: `Could not find an entry with story_character_id ${id}`})
+      }
     })
     .catch(error => {
       res.status(500).json({message: `failed to get story_character from server - Error: ${error}`})
     })
 })
 
-router.get('/:id/project', (req, res) => {
+// Reads all story_characters based on story_id - shows items from story_charadters dB as well as stories and characters
+router.get('/:id/story', (req, res) => {
   const { id } = req.params
 
-  SharedFunc.findById('projects', id)
-    .then(project => {
-      if (project) {
-        StoryCharacter.findByProjectId(id)
+  SharedFunc.findById('stories', id)
+    .then(story => {
+      if (story) {
+        StoryCharacter.findByStoryId(id)
           .then(storyChars => {
             res.status(200).json(storyChars)
           })
           .catch(error => {
-            res.status(500).json({ message: `Failed to get story_characters by project id Error: ${error}`})
+            res.status(500).json({ message: `Failed to get story_characters by story id - Error: ${error}`})
           })
       }else{
-        res.status(404).json({message: `Can not find a project with id ${id}`})
+        res.status(404).json({message: `Can not find a story with id ${id}`})
       }
     })
     .catch(error => {
@@ -49,7 +58,30 @@ router.get('/:id/project', (req, res) => {
     })
 })
 
+// Reads all story_characters based on character_id - shows items from story_charadters dB as well as stories and characters
+router.get('/:id/character', (req, res) => {
+  const { id } = req.params
 
+  SharedFunc.findById('characters', id)
+    .then(character=> {
+      if (character) {
+        StoryCharacter.findByProjectId(id)
+          .then(storyChars => {
+            res.status(200).json(storyChars)
+          })
+          .catch(error => {
+            res.status(500).json({ message: `Failed to get story_characters by character id - Error: ${error}`})
+          })
+      }else{
+        res.status(404).json({message: `Can not find a character with id ${id}`})
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: `Failed to get story_characters by project id - Error: ${error}`})
+    })
+})
+
+// Creates a new story_character
 router.post('/', (req, res) => {
     const storyCharData = req.body;
 
@@ -62,6 +94,7 @@ router.post('/', (req, res) => {
       })
 })
 
+// Updates a specific story_character with story_character_id
 router.put('/:id', (req, res) => {
   const { id } = req.params;
   const changes = req.body;
@@ -85,6 +118,7 @@ router.put('/:id', (req, res) => {
     })
 })
 
+// Destroys a specific story_character with story_character_id
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
 

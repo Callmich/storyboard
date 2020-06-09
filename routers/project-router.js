@@ -1,6 +1,9 @@
 const express = require('express');
 
-const SharedFunc = require('../shared-models/shared-models.js')
+const SharedFunc = require('../shared-models/shared-models.js');
+
+const { addProjectCheck } = require('../middleware/add.js')
+const { updateProjectCheck } = require('../middleware/update.js')
 
 const router = express.Router();
 
@@ -121,12 +124,16 @@ router.get('/:id/settings', (req, res) => {
 })
 
 // Creates project 
-router.post("/", (req, res) => {
+router.post("/", addProjectCheck, (req, res) => {
   const projectData = req.body;
 
   SharedFunc.add('projects', projectData)
     .then(project => {
+      if(project){
         res.status(201).json(project)
+      }else{
+        res.status(400).json({ message: `Error: Constraint Failed`})
+      }
     })
     .catch(error => {
         res.status(500).json({message: `Failed to create a new Project ${error.message}`})
@@ -134,7 +141,7 @@ router.post("/", (req, res) => {
 })
 
 // Updates specific project with project_id
-router.put('/:id', (req, res) => {
+router.put('/:id', updateProjectCheck, (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -143,7 +150,11 @@ router.put('/:id', (req, res) => {
       if (project) {
         SharedFunc.update('projects', id, changes)
           .then(updatedProject => {
-            res.status(200).json(updatedProject)
+            if(updatedProject){
+              res.status(200).json(updatedProject)
+            }else{
+              res.status(400).json({ message: `Error: Constraint Failed` })
+            }
           })
           .catch(error => {
             res.status(500).json({message: `error updating project - please confirm the correct info is being sent ${error}`})

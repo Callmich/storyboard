@@ -7,7 +7,7 @@ module.exports = {
   updateSceneCheck
 }
 
-// Check request to ensure it has required info for projects
+// Check request to ensure req has required info to update a project
 function updateProjectCheck(req, res, next){
     const { project_name, project_summary, project_notes } = req.body
 
@@ -18,6 +18,7 @@ function updateProjectCheck(req, res, next){
     }
   }
 
+  // Check request to ensure req has required info to update a story
 function updateStoryCheck(req, res, check){
   const { story_number, story_name, project_id, story_summary, story_notes } = req.body
 
@@ -28,6 +29,7 @@ function updateStoryCheck(req, res, check){
   }
 }
 
+// Check request to ensure req has required info to update a character
 function updateCharacterCheck(req, res, next){
   const { character_name, character_type, character_age, character_gender_identity, character_role, character_physical_desc, character_notes, character_status, project_id } = req.body
 
@@ -38,6 +40,7 @@ function updateCharacterCheck(req, res, next){
   }
 }
 
+// Check request to ensure req has required info to update a setting
 function updateSettingCheck(req, res, next){
   const { setting_name, setting_time, setting_desc, setting_background, setting_activities, project_id } = req.body
 
@@ -48,6 +51,7 @@ function updateSettingCheck(req, res, next){
   }
 }
 
+// Check request to ensure req has required info to update a scene
 function updateSceneCheck(req, res, next){
   const { scene_name, scene_number, scene_summary, scene_notes, story_id, scene_timespan } = req.body
 

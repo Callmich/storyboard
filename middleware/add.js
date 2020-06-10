@@ -7,7 +7,7 @@ module.exports = {
     addSceneCheck
 }
 
-// Check request to ensure it has required info for projects
+// Check request to ensure req has required info to create a project
 function addProjectCheck(req, res, next){
   const { project_name } = req.body
   if(project_name){
@@ -17,6 +17,7 @@ function addProjectCheck(req, res, next){
   }
 }
 
+// Check request to ensure req has required info to create a story
 function addStoryCheck(req, res, next){
   const { story_number, story_name, project_id } = req.body
 
@@ -27,6 +28,7 @@ function addStoryCheck(req, res, next){
   }
 }
 
+// Check request to ensure req has required info to create a character
 function addCharacterCheck(req, res, next){
   const { character_name, project_id } = req.body
 
@@ -37,6 +39,7 @@ function addCharacterCheck(req, res, next){
   }
 }
 
+// Check request to ensure req has required info to create a setting
 function addSettingCheck(req, res, next){
   const { setting_name, project_id } = req.body
 
@@ -47,6 +50,7 @@ function addSettingCheck(req, res, next){
   }
 }
 
+// Check request to ensure req has required info to create a scene
 function addSceneCheck(req, res, next){
   const { scene_name, scene_number, story_id } = req.body
 

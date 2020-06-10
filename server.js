@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require('helmet')
 
 //create Router for tables
 const ProjectRouter = require('./routers/project-router.js')
@@ -14,6 +15,7 @@ const SceneSettingsRouter = require('./routers/middleTableRouters/scene_settings
 
 const server = express();
 
+server.use(helmet());
 server.use(express.json());
 
 //server.use('***URL***', ***RouterGoesHere***)

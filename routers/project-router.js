@@ -136,7 +136,7 @@ router.post("/", addProjectCheck, (req, res) => {
       }
     })
     .catch(error => {
-        res.status(500).json({message: `Failed to create a new Project ${error.message}`})
+        res.status(500).json({message: `Failed to create a new Project ${error}`})
     })
 })
 
@@ -157,7 +157,7 @@ router.put('/:id', updateProjectCheck, (req, res) => {
             }
           })
           .catch(error => {
-            res.status(500).json({message: `error updating project - please confirm the correct info is being sent ${error}`})
+            res.status(400).json({message: `error updating project - ${error}`})
           })
       } else {
         res.status(404).json({ message: `Could not find project with id ${id}` });

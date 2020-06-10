@@ -104,7 +104,7 @@ function add(dataBase, item){
         return findById(dataBase, id)
     })
     .catch(error => {
-        console.log('Error on add', error)
+        return error
     })
   }
   return ad()

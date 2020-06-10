@@ -1,5 +1,8 @@
 const express = require('express');
-const SharedFunc = require('../shared-models/shared-models.js')
+const SharedFunc = require('../shared-models/shared-models.js');
+
+const { addStoryCheck } = require('../middleware/add.js')
+const { updateStoryCheck } = require('../middleware/update.js')
 
 const router = express.Router();
 
@@ -66,7 +69,7 @@ router.get('/:id/scenes', (req, res) => {
 })
 
 // Creates story
-router.post("/", (req, res) => {
+router.post("/", addStoryCheck, (req, res) => {
     const storyData = req.body;
 
     SharedFunc.add('stories', storyData)
@@ -79,7 +82,7 @@ router.post("/", (req, res) => {
 })
 
 // Updates specific story with story_id
-router.put('/:id', (req, res) => {
+router.put('/:id', updateStoryCheck, (req, res) => {
     const {id} = req.params;
     const changes = req.body;
 

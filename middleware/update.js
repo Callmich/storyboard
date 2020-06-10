@@ -2,8 +2,9 @@
 module.exports = {
   updateProjectCheck,
   updateStoryCheck,
-  updateCharacterCheck
-  updateSettingCheck
+  updateCharacterCheck,
+  updateSettingCheck,
+  updateSceneCheck
 }
 
 // Check request to ensure it has required info for projects
@@ -44,5 +45,15 @@ function updateSettingCheck(req, res, next){
     next()
   }else{
     res.status(400).json({ message: `Setting updates require a setting_name, setting_time, setting_desc, setting_background, setting_activities, or project_id`})
+  }
+}
+
+function updateSceneCheck(req, res, next){
+  const { scene_name, scene_number, scene_summary, scene_notes, story_id, scene_timespan } = req.body
+
+  if(scene_name || scene_number || scene_summary || scene_notes || story_id || scene_timespan){
+    next()
+  }else{
+    res.status(400).json({ message: `Scene updates require a scene_name, scene_number, scene_summary, scene_notes, story_id, or scene_timespan`})
   }
 }

@@ -3,7 +3,8 @@ module.exports = {
     addProjectCheck,
     addStoryCheck,
     addCharacterCheck,
-    addSettingCheck
+    addSettingCheck,
+    addSceneCheck
 }
 
 // Check request to ensure it has required info for projects
@@ -43,5 +44,15 @@ function addSettingCheck(req, res, next){
     next()
   }else{
     res.status(400).json({ message: `Settings require a setting_name & project_id`})
+  }
+}
+
+function addSceneCheck(req, res, next){
+  const { scene_name, scene_number, story_id } = req.body
+
+  if(scene_name && scene_number && story_id){
+    next()
+  }else{
+    res.status(400).json({ message: `Scenes require a scene_name, scene_number, & story_id `})
   }
 }

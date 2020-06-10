@@ -2,6 +2,9 @@ const express = require('express');
 
 const SharedFunc = require('../shared-models/shared-models.js');
 
+const { addSceneCheck } = require('../middleware/add.js')
+const { updateSceneCheck } = require('../middleware/update.js')
+
 const router = express.Router();
 
 // CRUD actions will start with /api/scenes
@@ -39,7 +42,7 @@ router.get('/:id', (req, res) => {
 })
 
 // Creates scene
-router.post('/', (req, res) => {
+router.post('/', addSceneCheck, (req, res) => {
     const sceneData = req.body;
 
     SharedFunc.add('scenes', sceneData)
@@ -52,7 +55,7 @@ router.post('/', (req, res) => {
 })
 
 // Updates specific scene with scene_id 
-router.put('/:id', (req, res) => {
+router.put('/:id', updateSceneCheck, (req, res) => {
   const { id } = req.params;
   const changes = req.body
 

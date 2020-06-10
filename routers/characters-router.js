@@ -2,6 +2,9 @@ const express = require('express');
 
 const SharedFunc = require('../shared-models/shared-models.js')
 
+const { addCharacterCheck } = require('../middleware/add.js');
+const { updateCharacterCheck } = require('../middleware/update.js')
+
 const router = express.Router();
 
 //CRUD ACTIONS go here and will start with /api/characters
@@ -40,7 +43,7 @@ router.get('/:id', (req, res) => {
 })
 
 // Creates character
-router.post("/", (req, res) => {
+router.post("/", addCharacterCheck, (req, res) => {
     const charData = req.body;
 
     SharedFunc.add('characters', charData)
@@ -53,7 +56,7 @@ router.post("/", (req, res) => {
 })
 
 // Updates specific character with character_id
-router.put('/:id', (req, res) => {
+router.put('/:id', updateCharacterCheck, (req, res) => {
     const {id} = req.params;
     const changes = req.body;
 

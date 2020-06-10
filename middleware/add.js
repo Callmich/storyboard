@@ -1,7 +1,8 @@
 
 module.exports = {
     addProjectCheck,
-    addStoryCheck
+    addStoryCheck,
+    addCharacterCheck
 }
 
 // Check request to ensure it has required info for projects
@@ -21,5 +22,15 @@ function addStoryCheck(req, res, next){
     next()
   }else{
     res.status(400).json({ message: `Stories require a story_number, story_name, & project_id`})
+  }
+}
+
+function addCharacterCheck(req, res, next){
+  const { character_name, project_id } = req.body
+
+  if(character_name && project_id){
+    next()
+  }else{
+    res.status(400).json({ message: `Characters require a character_name & project_id`})
   }
 }

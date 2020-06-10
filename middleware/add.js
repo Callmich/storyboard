@@ -2,7 +2,8 @@
 module.exports = {
     addProjectCheck,
     addStoryCheck,
-    addCharacterCheck
+    addCharacterCheck,
+    addSettingCheck
 }
 
 // Check request to ensure it has required info for projects
@@ -32,5 +33,15 @@ function addCharacterCheck(req, res, next){
     next()
   }else{
     res.status(400).json({ message: `Characters require a character_name & project_id`})
+  }
+}
+
+function addSettingCheck(req, res, next){
+  const { setting_name, project_id } = req.body
+
+  if(setting_name && project_id){
+    next()
+  }else{
+    res.status(400).json({ message: `Settings require a setting_name & project_id`})
   }
 }

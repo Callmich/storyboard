@@ -2,6 +2,9 @@ const express = require('express');
 
 const SharedFunc = require('../shared-models/shared-models.js')
 
+const { addSettingCheck } = require('../middleware/add.js');
+const { updateSettingCheck } = require('../middleware/update.js');
+
 const router = express.Router();
 
 // CRUD actions will start with /api/settings
@@ -39,7 +42,7 @@ router.get('/:id', (req, res) => {
 })
 
 // Creates setting
-router.post('/', (req, res) => {
+router.post('/', addSettingCheck, (req, res) => {
   const settingData = req.body
 
   SharedFunc.add('settings', settingData)
@@ -52,7 +55,7 @@ router.post('/', (req, res) => {
 })
 
 // Updates specific setting with setting_id
-router.put('/:id', (req, res) => {
+router.put('/:id', updateSettingCheck, (req, res) => {
     const { id } = req.params;
     const changes = req.body;
 

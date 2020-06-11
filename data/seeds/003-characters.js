@@ -1,0 +1,163 @@
+exports.seed = (knex, Promise) => {
+  return knex('characters').truncate()
+  .then(function (){
+    return knex('characters').insert([
+      {
+        // For ref will be id 1
+        character_name: "C3P0",
+        character_type: "Deuteragonist",
+        character_age: null,
+        character_gender_identity: "droid",
+        character_role: "comic relief",
+        character_physical_desc: "Gold Plated Robot",
+        character_notes: null,
+        character_status: null,
+        project_id: 1
+      },
+      {
+        // For ref will be id 2
+        character_name: "R2D2",
+        character_type: "Deuteragonist",
+        character_age: null,
+        character_gender_identity: "droid",
+        character_role: "comic relief",
+        character_physical_desc: "small trashcan shaped droid - silver and blue",
+        character_notes: null,
+        character_status: null,
+        project_id: 1
+      },
+      {
+        // For ref will be id 3
+        character_name: "Group of soldiers",
+        character_type: "Tertiary characters",
+        character_age: null,
+        character_gender_identity: null,
+        character_role: "fodder",
+        character_physical_desc: null,
+        character_notes: "Soldiers waiting for the attack",
+        character_status: null,
+        project_id: 1
+      },
+      {
+        // For ref will be id 4
+        character_name: "Princess Leia",
+        character_type: "Protagonist",
+        character_age: 25,
+        character_gender_identity: "female",
+        character_role: "Leading Character",
+        character_physical_desc: "Wears white",
+        character_notes: "needs more description",
+        character_status: null,
+        project_id: 1
+      },
+      {
+        // For ref will be id 5
+        character_name: "Darth Vader",
+        character_type: "Antagonist",
+        character_age: 55,
+        character_gender_identity: "more machine than man",
+        character_role: "Main Antagonist",
+        character_physical_desc: "Wears Black",
+        character_notes: "needs more description",
+        character_status: null,
+        project_id: 1
+      },
+      {
+        // For ref will be id 6
+        character_name: "Jeff Winger",
+        character_type: "Protagonist",
+        character_age: 30,
+        character_gender_identity: "male",
+        character_role: null,
+        character_physical_desc: null,
+        character_notes: null,
+        character_status: null,
+        project_id: 2
+      },
+      {
+        // For ref will be id 7
+        character_name: "Britta Perry",
+        character_type: "Protagonist",
+        character_age: 25,
+        character_gender_identity: "female",
+        character_role: null,
+        character_physical_desc: null,
+        character_notes: null,
+        character_status: null,
+        project_id: 2
+      },
+      {
+        // For ref will be id 8
+        character_name: "Abed Nadir",
+        character_type: "Protagonist",
+        character_age: 22,
+        character_gender_identity: "male",
+        character_role: null,
+        character_physical_desc: null,
+        character_notes: null,
+        character_status: null,
+        project_id: 2
+      },
+      {
+        // For ref will be id 9
+        character_name: "Annie Edison",
+        character_type: "Protagonist",
+        character_age: 19,
+        character_gender_identity: "female",
+        character_role: null,
+        character_physical_desc: null,
+        character_notes: null,
+        character_status: null,
+        project_id: 2
+      },
+      {
+        // For ref will be id 10
+        character_name: "Troy Barnes",
+        character_type: "Protagonist",
+        character_age: 19,
+        character_gender_identity: "male",
+        character_role: null,
+        character_physical_desc: null,
+        character_notes: null,
+        character_status: null,
+        project_id: 2
+      },
+      {
+        // For ref will be id 11
+        character_name: "Shirley Bennett",
+        character_type: "Protagonist",
+        character_age: 40,
+        character_gender_identity: "female",
+        character_role: null,
+        character_physical_desc: null,
+        character_notes: null,
+        character_status: null,
+        project_id: 2
+      },
+      {
+        // For ref will be id 12
+        character_name: "Pierce Hawthorne",
+        character_type: "Protagonist/Antagonist",
+        character_age: 60,
+        character_gender_identity: "male",
+        character_role: null,
+        character_physical_desc: null,
+        character_notes: null,
+        character_status: null,
+        project_id: 2
+      },
+      {
+        // For ref will be id 13
+        character_name: "Group of StormTroopers",
+        character_type: "Tertiary characters",
+        character_age: null,
+        character_gender_identity: null,
+        character_role: "fodder",
+        character_physical_desc: null,
+        character_notes: "Soldiers attacking",
+        character_status: null,
+        project_id: 1
+      },
+  ])
+  })
+}

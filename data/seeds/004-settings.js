@@ -3,6 +3,7 @@ exports.seed = (knex, Promise) => {
   .then(function (){
     return knex('settings').insert([
       {
+        // For ref will be id 1
         setting_name: "Tantive IV",
         setting_time: null,
         setting_desc: "Princess Leia's ship on a diplomatic mission to Alderon",
@@ -11,6 +12,7 @@ exports.seed = (knex, Promise) => {
         project_id: 1
       },
       {
+        // For ref will be id 2
         setting_name: "Tatooine",
         setting_time: null,
         setting_desc: "A desert planet. An endless vast sea of sand",
@@ -19,6 +21,7 @@ exports.seed = (knex, Promise) => {
         project_id: 1
       },
       {
+        // For ref will be id 3
         setting_name: "Ice Planet Hoth",
         setting_time: null,
         setting_desc: "An Ice planet. Cold - white and blue colors.",
@@ -27,6 +30,7 @@ exports.seed = (knex, Promise) => {
         project_id: 1
       },
       {
+        // For ref will be id 4
         setting_name: "The Rebel Base",
         setting_time: null,
         setting_desc: "The run down facility the Rebels are hiding",
@@ -35,6 +39,7 @@ exports.seed = (knex, Promise) => {
         project_id: 1
       },
       {
+        // For ref will be id 5
         setting_name: "The Wampa's Cave",
         setting_time: null,
         setting_desc: "scary cold ice cave",
@@ -43,6 +48,7 @@ exports.seed = (knex, Promise) => {
         project_id: 1
       },
       {
+        // For ref will be id 6
         setting_name: "Greendale Campus",
         setting_time: "Current Day",
         setting_desc: "A lovely open community college setting.",
@@ -51,6 +57,7 @@ exports.seed = (knex, Promise) => {
         project_id: 2
       },
       {
+        // For ref will be id 7
         setting_name: "The Study Room",
         setting_time: "Current Day",
         setting_desc: "A room in the library - lots of windows and a large table in the middle.",
@@ -59,6 +66,7 @@ exports.seed = (knex, Promise) => {
         project_id: 2
       },
       {
+        // For ref will be id 8
         setting_name: " Anthropology Class",
         setting_time: "Current Day",
         setting_desc: "A classroom full of students",
@@ -67,6 +75,7 @@ exports.seed = (knex, Promise) => {
         project_id: 2
       },
       {
+        // For ref will be id 9
         setting_name: "Cafeteria",
         setting_time: "Current Day",
         setting_desc: "A large basic cafeteria. Lots of students.",
@@ -75,6 +84,7 @@ exports.seed = (knex, Promise) => {
         project_id: 2
       },
       {
+        // For ref will be id 10
         setting_name: "Student Lounge",
         setting_time: "Current Day",
         setting_desc: null,
@@ -83,6 +93,7 @@ exports.seed = (knex, Promise) => {
         project_id: 2
       },
       {
+        // For ref will be id 11
         setting_name: "School Hallway",
         setting_time: "Current Day",
         setting_desc: null,
@@ -91,6 +102,7 @@ exports.seed = (knex, Promise) => {
         project_id: 2
       },
       {
+        // For ref will be id 12
         setting_name: "Greendale Student Health Center",
         setting_time: "Current Day",
         setting_desc: null,

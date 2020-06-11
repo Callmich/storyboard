@@ -158,6 +158,42 @@ exports.seed = (knex, Promise) => {
         character_status: null,
         project_id: 1
       },
+      {
+        // For ref will be id 14
+        character_name: "Betty White",
+        character_type: "Deuteragonist",
+        character_age: null,
+        character_gender_identity: null,
+        character_role: "Teacher",
+        character_physical_desc: null,
+        character_notes: "Let Betty White cook",
+        character_status: null,
+        project_id: 2
+      },
+      {
+        // For ref will be id 15
+        character_name: "Ian Duncan",
+        character_type: "Deuteragonist",
+        character_age: null,
+        character_gender_identity: "male",
+        character_role: "Teacher",
+        character_physical_desc: null,
+        character_notes: null,
+        character_status: null,
+        project_id: 2
+      },
+      {
+        // For ref will be id 16
+        character_name: "Group of Students",
+        character_type: "Tertiary characters",
+        character_age: null,
+        character_gender_identity: null,
+        character_role: "background characters",
+        character_physical_desc: null,
+        character_notes: "Students doing student things",
+        character_status: null,
+        project_id: 2
+      },
   ])
   })
 }

@@ -9,6 +9,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: "Princess Leia's ship on a diplomatic mission to Alderon",
         setting_background: "A Battle",
         setting_activities: null,
+        setting_url: null,
         project_id: 1
       },
       {
@@ -18,6 +19,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: "A desert planet. An endless vast sea of sand",
         setting_background: "If there's a bright center to the universe, you're on the planet that it's farthest from",
         setting_activities: null,
+        setting_url: null,
         project_id: 1
       },
       {
@@ -27,6 +29,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: "An Ice planet. Cold - white and blue colors.",
         setting_background: "The Rebels escaped to Hoth after Ep 4",
         setting_activities: null,
+        setting_url: null,
         project_id: 1
       },
       {
@@ -36,6 +39,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: "The run down facility the Rebels are hiding",
         setting_background: null,
         setting_activities: "Prep for battle or running",
+        setting_url: null,
         project_id: 1
       },
       {
@@ -45,6 +49,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: "scary cold ice cave",
         setting_background: "Where the Wampa lives and brings back its meals",
         setting_activities: "The Wampa is busy doing something in the back of the cave",
+        setting_url: null,
         project_id: 1
       },
       {
@@ -54,6 +59,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: "A lovely open community college setting.",
         setting_background: null,
         setting_activities: null,
+        setting_url: null,
         project_id: 2
       },
       {
@@ -63,6 +69,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: "A room in the library - lots of windows and a large table in the middle.",
         setting_background: null,
         setting_activities: null,
+        setting_url: null,
         project_id: 2
       },
       {
@@ -72,6 +79,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: "A classroom full of students",
         setting_background: null,
         setting_activities: null,
+        setting_url: null,
         project_id: 2
       },
       {
@@ -81,6 +89,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: "A large basic cafeteria. Lots of students.",
         setting_background: null,
         setting_activities: null,
+        setting_url: null,
         project_id: 2
       },
       {
@@ -90,6 +99,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: null,
         setting_background: null,
         setting_activities: null,
+        setting_url: null,
         project_id: 2
       },
       {
@@ -99,6 +109,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: null,
         setting_background: null,
         setting_activities: null,
+        setting_url: null,
         project_id: 2
       },
       {
@@ -108,6 +119,7 @@ exports.seed = (knex, Promise) => {
         setting_desc: null,
         setting_background: null,
         setting_activities: null,
+        setting_url: null,
         project_id: 2
       },
   ])

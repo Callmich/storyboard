@@ -12,6 +12,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: "Gold Plated Robot",
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 1
       },
       {
@@ -24,6 +25,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: "small trashcan shaped droid - silver and blue",
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 1
       },
       {
@@ -36,6 +38,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: "Soldiers waiting for the attack",
         character_status: null,
+        character_url: null,
         project_id: 1
       },
       {
@@ -48,6 +51,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: "Wears white",
         character_notes: "needs more description",
         character_status: null,
+        character_url: null,
         project_id: 1
       },
       {
@@ -60,6 +64,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: "Wears Black",
         character_notes: "needs more description",
         character_status: null,
+        character_url: null,
         project_id: 1
       },
       {
@@ -72,6 +77,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 2
       },
       {
@@ -84,6 +90,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 2
       },
       {
@@ -96,6 +103,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 2
       },
       {
@@ -108,6 +116,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 2
       },
       {
@@ -120,6 +129,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 2
       },
       {
@@ -132,6 +142,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 2
       },
       {
@@ -144,6 +155,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 2
       },
       {
@@ -156,6 +168,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: "Soldiers attacking",
         character_status: null,
+        character_url: null,
         project_id: 1
       },
       {
@@ -168,6 +181,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: "Let Betty White cook",
         character_status: null,
+        character_url: null,
         project_id: 2
       },
       {
@@ -180,6 +194,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 2
       },
       {
@@ -192,6 +207,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: "Students doing student things",
         character_status: null,
+        character_url: null,
         project_id: 2
       },
       {
@@ -204,6 +220,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: null,
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 1
       },
       {
@@ -216,6 +233,7 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: "Walking Carpet",
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 1
       },
       {
@@ -228,8 +246,22 @@ exports.seed = (knex, Promise) => {
         character_physical_desc: "Scruffy Looking Nerf-herder",
         character_notes: null,
         character_status: null,
+        character_url: null,
         project_id: 1
       },
+      {
+        // For ref will be id 20
+        character_name: "Alan Conner",
+        character_type: "Antagonist",
+        character_age: 40,
+        character_gender_identity: "male",
+        character_role: "foil to what Jeff was in the past",
+        character_physical_desc: null,
+        character_notes: "Scummy guy",
+        character_status: null,
+        character_url: null,
+        project_id: 2
+      }
   ])
   })
 }

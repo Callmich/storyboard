@@ -194,6 +194,42 @@ exports.seed = (knex, Promise) => {
         character_status: null,
         project_id: 2
       },
+      {
+        // For ref will be id 17
+        character_name: "Luke Skywalker",
+        character_type: "Protagonist",
+        character_age: 18,
+        character_gender_identity: "male",
+        character_role: "Leading Character",
+        character_physical_desc: null,
+        character_notes: null,
+        character_status: null,
+        project_id: 1
+      },
+      {
+        // For ref will be id 18
+        character_name: "Chewie",
+        character_type: "Deuteragonist",
+        character_age: 60,
+        character_gender_identity: "male",
+        character_role: "Co-pilot of Milenium falcon",
+        character_physical_desc: "Walking Carpet",
+        character_notes: null,
+        character_status: null,
+        project_id: 1
+      },
+      {
+        // For ref will be id 19
+        character_name: "Han Solo",
+        character_type: "Deuteragonist",
+        character_age: 30,
+        character_gender_identity: "male",
+        character_role: "Pilot of Milenium falcon",
+        character_physical_desc: "Scruffy Looking Nerf-herder",
+        character_notes: null,
+        character_status: null,
+        project_id: 1
+      },
   ])
   })
 }

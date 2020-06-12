@@ -30,7 +30,7 @@ exports.seed = (knex, Promise) => {
       },
       {
         // For ref will be id 3
-        character_name: "Group of soldiers",
+        character_name: "Rebel Soldiers",
         character_type: "Tertiary characters",
         character_age: null,
         character_gender_identity: null,
@@ -160,7 +160,7 @@ exports.seed = (knex, Promise) => {
       },
       {
         // For ref will be id 13
-        character_name: "Group of StormTroopers",
+        character_name: "StormTroopers",
         character_type: "Tertiary characters",
         character_age: null,
         character_gender_identity: null,

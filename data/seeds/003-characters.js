@@ -173,7 +173,7 @@ exports.seed = (knex, Promise) => {
       },
       {
         // For ref will be id 14
-        character_name: "Betty White",
+        character_name: "Professor June Bauer",
         character_type: "Deuteragonist",
         character_age: null,
         character_gender_identity: null,

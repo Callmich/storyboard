@@ -87,7 +87,7 @@ exports.up = function (knex) {
         .inTable("characters")
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
-      storChar.string("story_character_combo").unique().notNullable();
+      storChar.string("story_character_combo").unique().notNullable(); // storyId,characterId,projectId
       storChar.text("story_character_pov_changes");
     })
     .createTable("story_settings", (storSett) => {
@@ -106,7 +106,7 @@ exports.up = function (knex) {
         .inTable("settings")
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
-      storSett.string("story_setting_combo").unique().notNullable();
+      storSett.string("story_setting_combo").unique().notNullable(); // storyId,settingId,projectId
     })
     .createTable("scene_characters", (sceneChar) => {
       sceneChar.increments("scene_character_id");
@@ -124,7 +124,7 @@ exports.up = function (knex) {
         .inTable("characters")
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
-      sceneChar.string("scene_character_combo").unique().notNullable();
+      sceneChar.string("scene_character_combo").unique().notNullable(); // sceneId,characterId,projectId
       sceneChar.text("scene_character_pov_changes");
     })
     .createTable("scene_settings", (sceneSett) => {
@@ -143,7 +143,7 @@ exports.up = function (knex) {
         .inTable("settings")
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
-      sceneSett.string("scene_setting_combo").unique().notNullable();
+      sceneSett.string("scene_setting_combo").unique().notNullable(); // sceneId,settingId,projectId
     })
     .createTable("character_settings", (charSett) => {
       charSett.increments("character_setting_id");
@@ -161,7 +161,7 @@ exports.up = function (knex) {
         .inTable("settings")
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
-      charSett.string("character_setting_combo").unique().notNullable();
+      charSett.string("character_setting_combo").unique().notNullable(); // characterId,settingId,projectId
     });
 };
 

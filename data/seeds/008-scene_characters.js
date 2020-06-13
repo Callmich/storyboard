@@ -160,7 +160,7 @@ exports.seed = (knex, Promise) => {
       {
         scene_id: 10, // Back to School
         character_id: 9, // Annie
-        scene_character_pov_changes: "Annie is combing her hair thinking of Jeff to start the scene."
+        scene_character_pov_changes: "Annie is combing her hair thinking of Jeff to start the scene. Gets a laugh at Troy's tweet."
       },
       {
         scene_id: 10, // Back to School
@@ -226,6 +226,16 @@ exports.seed = (knex, Promise) => {
         scene_id: 12, // Hallway to Class
         character_id: 9, // Annie
         scene_character_pov_changes: "Annie tries to get Jeff to realize she cares and she is the right woman for her. Promises to keep their kiss silent but can not hide her feelings."
+      },
+      {
+        scene_id: 10, // Back to School
+        character_id: 16, // students
+        scene_character_pov_changes: "They are inspired by Britta but look like they are saying bad things about her."
+      },
+      {
+        scene_id: 12, // Hallway to Class
+        character_id: 16, // students
+        scene_character_pov_changes: "They reveal that they are  inspired by Britta."
       },
   ])
   })

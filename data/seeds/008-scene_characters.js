@@ -142,6 +142,91 @@ exports.seed = (knex, Promise) => {
         character_id: 19, // Han
         scene_character_pov_changes: "Han's concern is growing as he searches out in the cold for Luke."
       },
+      {
+        scene_id: 10, // Back to School
+        character_id: 6, // Jeff
+        scene_character_pov_changes: "Jeff is doing crunches in the bed bit to start."
+      },
+      {
+        scene_id: 10, // Back to School
+        character_id: 7, // Britta
+        scene_character_pov_changes: "Britta could not sleep. When arriving she is embarrassed as all the women are obviously talking about her on campus."
+      },
+      {
+        scene_id: 10, // Back to School
+        character_id: 8, // Abid
+        scene_character_pov_changes: "Abid is ready to start a new semester. he has big plans and hopes!"
+      },
+      {
+        scene_id: 10, // Back to School
+        character_id: 9, // Annie
+        scene_character_pov_changes: "Annie is combing her hair thinking of Jeff to start the scene."
+      },
+      {
+        scene_id: 10, // Back to School
+        character_id: 10, // Troy
+        scene_character_pov_changes: "Troy is insulted by Pierce and takes it out by posting the racist stuff he says to his twitter."
+      },
+      {
+        scene_id: 10, // Back to School
+        character_id: 11, // Shirley
+        scene_character_pov_changes: "Shirley is enjoying the moring playing with her boys."
+      },
+      {
+        scene_id: 10, // Back to School
+        character_id: 12, // Pierce 
+        scene_character_pov_changes: "Pierce is happy to have Troy with him and to be starting a new year."
+      },
+      {
+        scene_id: 11, // And We're Back
+        character_id: 6, // Jeff
+        scene_character_pov_changes: "Is happy to see everyone."
+      },
+      {
+        scene_id: 11, // And We're Back
+        character_id: 7, // Britta
+        scene_character_pov_changes: "Pops up scraring the group. She explains she is extremely embarrassed to be in this situation."
+      },
+      {
+        scene_id: 11, // And We're Back
+        character_id: 8, // Abid
+        scene_character_pov_changes: "Is happy to see everyone"
+      },
+      {
+        scene_id: 11, // And We're Back
+        character_id: 9, // Annie
+        scene_character_pov_changes: "Is concerned as Britta has not returned any communication over the break. Glad to see everyone."
+      },
+      {
+        scene_id: 11, // And We're Back
+        character_id: 10, // Troy
+        scene_character_pov_changes: "Is happy to see everyone. Gets confused."
+      },
+      {
+        scene_id: 11, // And We're Back
+        character_id: 11, // Shirley
+        scene_character_pov_changes: "Is concerned as Britta has not returned any communication over the break. Glad to see everyone."
+      },
+      {
+        scene_id: 11, // And We're Back
+        character_id: 12, // Pierce 
+        scene_character_pov_changes: "Is happy to see everyone."
+      },
+      {
+        scene_id: 12, // Hallway to Class
+        character_id: 6, // Jeff
+        scene_character_pov_changes: "Takes Britta's appology and says she deserves the embarrassment she is recieveing. Sees that the women talk to Britta and say they admire her and realizes he may be in trouble. Recognizes that Annie has feelings for him and is not hiding it well. He relizes again he may be in trouble."
+      },
+      {
+        scene_id: 12, // Hallway to Class
+        character_id: 7, // Britta
+        scene_character_pov_changes: "Britta goes from embarrassment to being empowered by the women of the school."
+      },
+      {
+        scene_id: 12, // Hallway to Class
+        character_id: 9, // Annie
+        scene_character_pov_changes: "Annie tries to get Jeff to realize she cares and she is the right woman for her. Promises to keep their kiss silent but can not hide her feelings."
+      },
   ])
   })
 }

@@ -1,4 +1,4 @@
-// added url field for characters and settings
+// added url field for characters and settings & removed unique need for scene number
 exports.up = function(knex) {
   return(knex.schema
     .createTable('projects', projects=> {
@@ -69,7 +69,6 @@ exports.up = function(knex) {
           .unique()
           .notNullable();
         scenes.float('scene_number')
-          .unique()
           .notNullable();
         scenes.text('scene_summary');
         scenes.text('scene_notes');

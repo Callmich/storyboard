@@ -35,11 +35,11 @@ The EndPoints documentation is located [here](https://documenter.getpostman.com/
 The basic structure of this project in its current state is that on the top level there are Projects. Next there are tables for Stories, Characters, and Settings that relate back to a project_id. After that there is a table for Scenes that relates back to a story_id. Lastly there are middle tables that connect the tables from the second and third level.
 
 Projects
----------
+--
 Stories | Characters | Settings
----------
+--
 Scenes
----------
+--
 story_characters | story_settings | scene_characters | scene_settings | character_settings
 
 

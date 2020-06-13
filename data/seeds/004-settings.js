@@ -34,7 +34,7 @@ exports.seed = (knex, Promise) => {
       },
       {
         // For ref will be id 4
-        setting_name: "The Rebel Base",
+        setting_name: "Echo Base",
         setting_time: null,
         setting_desc: "The run down facility the Rebels are hiding",
         setting_background: null,

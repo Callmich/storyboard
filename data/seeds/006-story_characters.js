@@ -125,17 +125,17 @@ exports.seed = (knex, Promise) => {
       {
         story_id: 4, // Community 2.1
         character_id: 6, // Jeff
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Realizes respect is missing from the relationships in the study group. Helps build it back with a speech at the end."
       },
       {
         story_id: 5, // Community 2.2
         character_id: 6, // Jeff
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Jeff relizes that the caring that he's grown to have over his time at Greendale makes him a better person. He likes who he has become."
       },
       {
         story_id: 6, // Community 2.3
         character_id: 6, // Jeff
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Learns that he will die and also comes to accept it."
       },
       {
         story_id: 7, // Community 2.4
@@ -145,17 +145,17 @@ exports.seed = (knex, Promise) => {
       {
         story_id: 4, // Community 2.1
         character_id: 7, // Britta
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Learns to put the respect for the others in the group over winning and being seen as popular."
       },
       {
         story_id: 5, // Community 2.2
         character_id: 7, // Britta
-        story_character_pov_changes: ""
+        story_character_pov_changes: null
       },
       {
         story_id: 6, // Community 2.3
         character_id: 7, // Britta
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Learns to respect Annie as well as herself."
       },
       {
         story_id: 7, // Community 2.4
@@ -165,17 +165,17 @@ exports.seed = (knex, Promise) => {
       {
         story_id: 4, // Community 2.1
         character_id: 8, // Abed
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Realizes he was trying too hard to fit troups onto the group."
       },
       {
         story_id: 5, // Community 2.2
         character_id: 8, // Abed
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Annie will cloroform a man if she needs to."
       },
       {
         story_id: 6, // Community 2.3
         character_id: 8, // Abed
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Has a series of background stories with a couple about to give birth."
       },
       {
         story_id: 7, // Community 2.4
@@ -185,17 +185,17 @@ exports.seed = (knex, Promise) => {
       {
         story_id: 4, // Community 2.1
         character_id: 9, // Annie
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Loses crush on Jeff. Realizes he's gross."
       },
       {
         story_id: 5, // Community 2.2
         character_id: 9, // Annie
-        story_character_pov_changes: ""
+        story_character_pov_changes: "She will cloroform a man if she needs to."
       },
       {
         story_id: 6, // Community 2.3
         character_id: 9, // Annie
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Learns to respect britta and herslf."
       },
       {
         story_id: 7, // Community 2.4
@@ -205,17 +205,17 @@ exports.seed = (knex, Promise) => {
       {
         story_id: 4, // Community 2.1
         character_id: 10, // Troy
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Realizes he took twitter too far and it has hurt Pierce."
       },
       {
         story_id: 5, // Community 2.2
         character_id: 10, // Troy
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Annie will cloroform a man if she needs to."
       },
       {
         story_id: 6, // Community 2.3
         character_id: 10, // Troy
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Is almost taken in by a cult- realizes it when hearing Pierce's mom speak from beyond the grave."
       },
       {
         story_id: 7, // Community 2.4
@@ -225,17 +225,17 @@ exports.seed = (knex, Promise) => {
       {
         story_id: 4, // Community 2.1
         character_id: 11, // Shirley
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Loses Respect for the members of the study group but gains it back."
       },
       {
         story_id: 5, // Community 2.2
         character_id: 11, // Shirley
-        story_character_pov_changes: ""
+        story_character_pov_changes: null
       },
       {
         story_id: 6, // Community 2.3
         character_id: 11, // Shirley
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Tries to tell the women she feels left out but when they don't realize it she enjoys watching them fight."
       },
       {
         story_id: 7, // Community 2.4
@@ -245,17 +245,17 @@ exports.seed = (knex, Promise) => {
       {
         story_id: 4, // Community 2.1
         character_id: 12, // Pierce
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Realizes he's been a butt of a joke - wants to make money from it."
       },
       {
         story_id: 5, // Community 2.2
         character_id: 12, // Pierce
-        story_character_pov_changes: ""
+        story_character_pov_changes: null
       },
       {
         story_id: 6, // Community 2.3
         character_id: 12, // Pierce
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Chooses to keep following his religion after an impassioned plea from his dead mother."
       },
       {
         story_id: 7, // Community 2.4
@@ -280,17 +280,17 @@ exports.seed = (knex, Promise) => {
       {
         story_id: 4, // Community 2.1
         character_id: 14, // Betty White
-        story_character_pov_changes: ""
+        story_character_pov_changes: null
       },
       {
-        story_id: 5, // Community 2.2
+        story_id: 6, // Community 2.2
         character_id: 14, // Betty White
-        story_character_pov_changes: ""
+        story_character_pov_changes: null
       },
       {
         story_id: 6, // Community 2.3
         character_id: 15, // Ian Duncan
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Uses his powers for evil against chang but learns to respect him."
       },
       {
         story_id: 4, // Community 2.1
@@ -315,7 +315,7 @@ exports.seed = (knex, Promise) => {
       {
         story_id: 5, // Community 2.2
         character_id: 20, // Alan Conner
-        story_character_pov_changes: ""
+        story_character_pov_changes: "Learns 0 lessons. Is scummy."
       },
   ])
   })

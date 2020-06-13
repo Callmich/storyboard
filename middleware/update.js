@@ -13,11 +13,9 @@ function updateProjectCheck(req, res, next) {
   if (project_name || project_summary || project_notes) {
     next();
   } else {
-    res
-      .status(400)
-      .json({
-        message: `Project update must contain project_name, project_summary, or project_notes`,
-      });
+    res.status(400).json({
+      message: `Project update must contain project_name, project_summary, or project_notes`,
+    });
   }
 }
 
@@ -40,11 +38,9 @@ function updateStoryCheck(req, res, check) {
   ) {
     next();
   } else {
-    res
-      .status(400)
-      .json({
-        message: `Story update must contain a story_number, story_name, project_id, story_summary, or story_notes`,
-      });
+    res.status(400).json({
+      message: `Story update must contain a story_number, story_name, project_id, story_summary, or story_notes`,
+    });
   }
 }
 
@@ -59,6 +55,7 @@ function updateCharacterCheck(req, res, next) {
     character_physical_desc,
     character_notes,
     character_status,
+    character_url,
     project_id,
   } = req.body;
 
@@ -71,13 +68,14 @@ function updateCharacterCheck(req, res, next) {
     character_physical_desc ||
     character_notes ||
     character_status ||
+    character_url ||
     project_id
   ) {
     next();
   } else {
     res
       .status(400)
-      .json({ message: `Characters require a character_name & project_id` });
+      .json({ message: `Character updates require a character_name, character_type, character_age, character_gender_identity, character_role, character_physical_desc, character_notes, character_statu, character_url or project_id` });
   }
 }
 
@@ -89,6 +87,7 @@ function updateSettingCheck(req, res, next) {
     setting_desc,
     setting_background,
     setting_activities,
+    setting_url,
     project_id,
   } = req.body;
 
@@ -98,15 +97,14 @@ function updateSettingCheck(req, res, next) {
     setting_desc ||
     setting_background ||
     setting_activities ||
+    setting_url ||
     project_id
   ) {
     next();
   } else {
-    res
-      .status(400)
-      .json({
-        message: `Setting updates require a setting_name, setting_time, setting_desc, setting_background, setting_activities, or project_id`,
-      });
+    res.status(400).json({
+      message: `Setting updates require a setting_name, setting_time, setting_desc, setting_background, setting_activities, setting_url, or project_id`,
+    });
   }
 }
 
@@ -131,10 +129,8 @@ function updateSceneCheck(req, res, next) {
   ) {
     next();
   } else {
-    res
-      .status(400)
-      .json({
-        message: `Scene updates require a scene_name, scene_number, scene_summary, scene_notes, story_id, or scene_timespan`,
-      });
+    res.status(400).json({
+      message: `Scene updates require a scene_name, scene_number, scene_summary, scene_notes, story_id, or scene_timespan`,
+    });
   }
 }

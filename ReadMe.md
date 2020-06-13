@@ -3,6 +3,7 @@
 [GitHub](https://github.com/Callmich) | [LinkedIn](https://www.linkedin.com/in/michael-callahan-a640551a3/)
 
 Current version: 1.0
+
 Future Updates Plans: After Front End is Created I will be updating this back end to have a userbase table. I will add Authorization and provate routes. Also more testing of endpoints needs to be written.
 
 ## What is StoryBoard?
@@ -12,8 +13,7 @@ I am looking to solve that problem. This is StoryBoard's back end - it will be t
 ### Tech/Languages Used:
 node.js | expres | javaScript | knex | sqlite3 | postgres
 
-
-### Build Instructions for a Dev Server
+### Build Instructions for a Dev Server:
 1. Clone the repository: `git clone https://github.com/Callmich/storyboard`
 2. Navigate to the directory: `cd storyboard`
 3. Install the necessary dependencies: `npm install`
@@ -21,9 +21,16 @@ node.js | expres | javaScript | knex | sqlite3 | postgres
 4. If SQLite3 is installed - run `knex migrate:latest` to set up database
 5. Seed data `knex seed:run`
 
-### API Documentation
+### API Documentation:
 The EndPoints documentation is located [here](https://documenter.getpostman.com/view/10662887/Szzhdy91)
 
+### Structure
+![alt text](https://github.com/Callmich/storyboard/blob/master/designs/StoryBoard%20DB%20final%20V1.jpg)
 
 
+### Credits:
+Many thanks to my friends Marc Muszynski, Alex Nimmer, and Hannah McMahon for the inspiration and letting me pick their brains with questions and then questions about those answers.
 
+### License:
+Using an MIT License
+MIT © Michael Callahan

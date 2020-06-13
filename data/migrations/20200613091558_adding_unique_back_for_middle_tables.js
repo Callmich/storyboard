@@ -1,4 +1,4 @@
-// adding in unique combos as strings to the middle-tables
+// adding in unique combos as strings to the middle-tables & removed unique from story_number
 exports.up = function (knex) {
   return knex.schema
     .createTable("projects", (projects) => {
@@ -9,7 +9,7 @@ exports.up = function (knex) {
     })
     .createTable("stories", (stories) => {
       stories.increments("story_id");
-      stories.float("story_number").unique().notNullable();
+      stories.float("story_number").notNullable();
       stories.string("story_name", 100).unique().notNullable();
       stories.text("story_summary");
       stories.text("story_notes");

@@ -1,5 +1,5 @@
 // added url field for characters and settings & removed unique need for scene number
-exports.up = function(knex) {
+exports.up = function (knex) {
   // return(knex.schema
   //   .createTable('projects', projects=> {
   //     projects.increments('project_id');
@@ -160,7 +160,7 @@ exports.up = function(knex) {
   //       )
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   // return knex.schema
   //   .dropTableIfExists('character_settings')
   //   .dropTableIfExists('scene_settings')

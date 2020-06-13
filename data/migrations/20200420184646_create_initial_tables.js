@@ -1,7 +1,5 @@
-
-exports.up = function(knex) {
+exports.up = function (knex) {
   //Commenting out as the migration latest errors out with the same table names
-
   // return(knex.schema
   //   .createTable('projects', projects=> {
   //       projects.increments('id');
@@ -160,18 +158,17 @@ exports.up = function(knex) {
   // )
 };
 
-exports.down = function(knex) {
-//Commenting out as the migration latest errors out with the same table names
-
-//   return knex.schema
-//     .dropTableIfExists('character_settings')
-//     .dropTableIfExists('scene_settings')
-//     .dropTableIfExists('scene_characters')
-//     .dropTableIfExists('story_settings')
-//     .dropTableIfExists('story_characters')
-//     .dropTableIfExists('scenes')
-//     .dropTableIfExists('settings')
-//     .dropTableIfExists('characters')
-//     .dropTableIfExists('stories')
-//     .dropTableIfExists('projects')
+exports.down = function (knex) {
+  //Commenting out as the migration latest errors out with the same table names
+  //   return knex.schema
+  //     .dropTableIfExists('character_settings')
+  //     .dropTableIfExists('scene_settings')
+  //     .dropTableIfExists('scene_characters')
+  //     .dropTableIfExists('story_settings')
+  //     .dropTableIfExists('story_characters')
+  //     .dropTableIfExists('scenes')
+  //     .dropTableIfExists('settings')
+  //     .dropTableIfExists('characters')
+  //     .dropTableIfExists('stories')
+  //     .dropTableIfExists('projects')
 };

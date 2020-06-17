@@ -7,7 +7,7 @@ const { updateProjectCheck } = require("../middleware/update.js");
 
 const router = express.Router();
 
-// CRUD actions will start with /api/scenes
+// CRUD actions will start with /api/projects
 
 // Reads all projects
 router.get("/", (req, res) => {

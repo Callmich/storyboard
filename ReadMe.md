@@ -48,7 +48,7 @@ Do you have any suggestions for refactoring the code or additional features you'
 
 
 ### Thanks:
-Many thanks to my friends Marc Muszynski, Alex Nimmer, and Hannah McMahon for the inspiration and letting me pick their brains with questions and then questions about those answers and then more questions.
+Many thanks to my friends [Marc Muszynski](http://marcmuszynski.com/), Alex Nimmer, and Hannah McMahon for the inspiration and letting me pick their brains with questions and then questions about those answers and then more questions.
 
 ### License:
 Using an MIT License

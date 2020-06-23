@@ -44,7 +44,7 @@ Level 4: story_characters | story_settings | scene_characters | scene_settings |
 
 
 ### Feedback:
-Do you have any suggestions for refactoring the code or additional features you'd like to see implemented? Please feel free to reach out to me on [GitHub](https://github.com/Callmich) or my [LinkedIn](https://www.linkedin.com/in/michael-callahan-a640551a3/). Looking forward to hearing from you and talking code!
+Do you have any suggestions for refactoring the code or additional features you'd like to see implemented? Please feel free to reach out to me on [GitHub](https://github.com/Callmich) or my [LinkedIn](https://www.linkedin.com/in/michael-callahan-a640551a3/). Looking forward to hearing from you and talking code! 
 
 
 ### Thanks:

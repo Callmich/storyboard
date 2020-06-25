@@ -1,6 +1,5 @@
 exports.seed = (knex, Promise) => {
   return knex("characters")
-    .truncate()
     .then(function () {
       return knex("characters").insert([
         {

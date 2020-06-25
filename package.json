@@ -8,9 +8,13 @@
     "start": "node index.js",
     "test": "jest --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Callmich/storyboard.git"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

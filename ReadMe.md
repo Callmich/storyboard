@@ -1,10 +1,10 @@
 # StoryBoard
 ### Michael E Callahan
-[GitHub](https://github.com/Callmich) | [LinkedIn](https://www.linkedin.com/in/michael-callahan-a640551a3/)
+[GitHub](https://github.com/Callmich) | [LinkedIn](https://www.linkedin.com/in/michael-callahan-webdev/)
 
 Current version: 1.0
 
-Future Updates Plans: After Front End is Created I will be updating this back end to have a userbase table. I will add Authorization and provate routes. Also more testing of endpoints needs to be written.
+Future Updates Plans: After Front End is Created I will be updating this back end to have a userbase table. I will add Authorization and private routes. Also more testing of endpoints needs to be written.
 
 
 ## What is StoryBoard?

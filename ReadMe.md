@@ -4,7 +4,7 @@
 
 Current version: 1.0
 
-Future Updates Plans: After Front End is Created I will be updating this back end to have a userbase table. I will add Authorization and private routes. Also more testing of endpoints needs to be written.
+Future Updates Plans: After Front End is Created I will be updating this back end to have a userbase table. I will add Authorization through a 3rd party and also private routes. Also more testing of endpoints needs to be written.
 
 
 ## What is StoryBoard?
@@ -21,8 +21,8 @@ node.js | expres | javaScript | knex | sqlite3 | postgres
 2. Navigate to the directory: `cd storyboard`
 3. Install the necessary dependencies: `npm install`
 4. Start server with `npm run server`
-4. If SQLite3 is installed - run `knex migrate:latest` to set up database
-5. Seed data `knex seed:run`
+5. If SQLite3 is installed - run `knex migrate:latest` to set up database
+6. Seed data `knex seed:run`
 
 
 ### API Documentation:
@@ -44,7 +44,7 @@ Level 4: story_characters | story_settings | scene_characters | scene_settings |
 
 
 ### Feedback:
-Do you have any suggestions for refactoring the code or additional features you'd like to see implemented? Please feel free to reach out to me on [GitHub](https://github.com/Callmich) or my [LinkedIn](https://www.linkedin.com/in/michael-callahan-a640551a3/). Looking forward to hearing from you and talking code! 
+Do you have any suggestions for refactoring the code or additional features you'd like to see implemented? Please feel free to reach out to me on [GitHub](https://github.com/Callmich) or my [LinkedIn](https://www.linkedin.com/in/michael-callahan-webdev/). Looking forward to hearing from you and talking code! 
 
 
 ### Thanks:

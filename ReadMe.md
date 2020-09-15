@@ -13,7 +13,7 @@ I am looking to solve that problem. This is StoryBoard's back end - it will be t
 
 
 ### Tech/Languages Used:
-node.js | express | javaScript | knex | sqlite3 | postgres
+Node.js | Express | JavaScript | Knex | SQLite3 | Postgres
 
 
 ### Build Instructions for a Dev Server:
